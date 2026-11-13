@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TU SOCIO IA - TSI | tuagentetsi.com - Web + Socio IA + CRM + Radar</title>
+<style>
+*{box-sizing:border-box}body{font-family:system-ui,Arial,sans-serif;margin:0;background:#0A0A0A;color:#fff;padding:14px;padding-bottom:100px}
+h1{font-size:28px;line-height:1.15}h2{font-size:20px;color:#D4AF37;margin:18px 0 10px}h3{font-size:17px}
+.card{background:#1c1c1c;border:1px solid #333;border-radius:14px;padding:16px;margin:12px 0}
+.card-w{background:#fff;color:#000;border-radius:14px;padding:16px;margin:12px 0}
+button,.btn{background:#D4AF37;border:0;padding:12px 16px;border-radius:10px;font-weight:700;margin:4px 2px;cursor:pointer;color:#000;text-decoration:none;display:inline-block;text-align:center;white-space:normal;line-height:1.3}
+.btn-green{background:#25D366;color:#fff;padding:14px 18px;border-radius:12px;font-weight:bold;text-decoration:none;display:block;text-align:center;margin-top:10px}
+input,select,textarea{width:100%;padding:11px;border-radius:10px;border:1px solid #444;background:#111;color:#fff;margin:6px 0;font-size:15px}
+.card-w input,.card-w select,.card-w textarea{background:#fff;color:#000;border:1px solid #ddd}
+#chat{height:280px;overflow:auto;background:#111;border-radius:12px;padding:10px}
+.msg{margin:8px 0;padding:9px 11px;border-radius:12px;max-width:88%;word-wrap:break-word}.yo{background:#D4AF37;color:#000;margin-left:auto}.ia{background:#2a2a2a}
+.small{font-size:12px;color:#aaa}.badge{background:#D4AF37;color:#000;padding:5px 10px;border-radius:20px;display:inline-block;font-size:12px;font-weight:bold}
+table{width:100%;font-size:13px}td,th{padding:6px;border-bottom:1px solid #333;text-align:left}
+.price{background:#D4AF37;color:#000;padding:22px;border-radius:14px;text-align:center}
+.price2{background:#222;padding:20px;border-radius:14px;text-align:center;border:1px solid #444}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}img{width:100%;border-radius:14px;margin-top:10px}
+.qrbox{background:#fff;color:#000;border-radius:14px;padding:14px;text-align:center}.qrbox img{width:180px;height:180px}
+.service-w{display:flex;justify-content:space-between;align-items:center;background:#f2f2f2;padding:12px;border-radius:12px;margin:10px 0}
+.opinion{background:#f2f2f2;color:#000;padding:12px;border-radius:12px;margin:10px 0}
+.wa-float{position:fixed;right:16px;bottom:16px;width:48px;height:48px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;z-index:999;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+.old{text-decoration:line-through;color:#aaa}.center{text-align:center}
+</style></head><body>
+
+<div class="center" style="padding:20px 0">
+<span class="badge">👑 TU SOCIO IA TSI</span><br><br><span class="badge">Solo 10 plazas de lanzamiento</span>
+<h1>Tu Socio IA que contesta, agenda y vende por ti. 24/7.</h1>
+<p>Tu Socio IA TSI contesta tus DMs de Instagram y WhatsApp en 2 segundos, agenda directo en TSI y no deja escapar ningún cliente. Mientras tú tatúas, cortas o atiendes, él vende.</p>
+<a class="btn" href="#crear">Crear mi socio gratis</a> <a class="btn" href="#demo">Ver demo</a> <a class="btn" href="#radar">Radar Clientes</a>
+<p class="small">Contacto: tusocioia.tsi@gmail.com | WhatsApp: 603 489 654 | Bizum: 603 489 654</p>
+</div>
+
+<div class="card"><h2>¿Por qué TSI?</h2>
+<p>❌ Empleada recepcionista: 2.000€/mes, duerme, no contesta de noche, se pone enferma<br>
+✅ <b>Tu Socio IA TSI: 300€/mes, nunca duerme, contesta en 2 segundos, agenda en TSI</b><br><br>
+<b>Te ahorras 1.700€ al mes desde el primer mes</b></p></div>
+
+<div class="card"><h2>Cómo funciona - 3 pasos</h2>
+<p><b>1.</b> Eliges tu nicho: Tatuador / Barbero / Dentista / Estética<br>
+<b>2.</b> Pegamos tu Instagram, web, precios y horarios<br>
+<b>3.</b> En 30 segundos tienes tu socio y tu link de demo para probarlo</p>
+<p><b>DEMO EN 30 SEGUNDOS</b><br><b>LA NOCHE NO ESPERA.</b></p></div>
+
+<div class="card"><h2>Nichos - Para cualquier negocio</h2>
+<p><b>Tatuadores:</b> cualifica zona, tamaño, estilo, pide referencia y agenda<br>
+<b>Barberos:</b> corte, degradado, barba, elige barbero y agenda<br>
+<b>Clínicas Dentales:</b> dolor, limpieza, ortodoncia, primera valoración gratuita<br>
+<b>Estética / Gimnasio / Restaurante / Taller / Academia / Inmobiliaria:</b> se adapta solo a tu negocio</p></div>
+
+<div class="price"><h2 style="color:#000">OFERTA LANZAMIENTO - Solo los 10 primeros</h2>
+<p><span class="old" style="color:#333">Precio normal 1900€ + 500€/mes</span></p>
+<h1>900€ una vez + 300€/mes</h1>
+<p>Solo 10 plazas de lanzamiento. Después subirá a 1900€ + 500€/mes. Sin excepción.</p>
+<p><i>Precio final según las necesidades y servicios de tu negocio. Habla con nosotros y te hacemos tu presupuesto a medida.</i></p>
+<a class="btn" href="https://wa.me/34603489654?text=Hola,%20quiero%20reservar%20mi%20plaza%20TSI%20900" style="background:#000;color:#D4AF37">Reservar mi plaza - 900€</a></div>
+<div class="price2"><h2>Precio normal después</h2><h2>1900€ una vez + 500€/mes</h2>
+<p><i>Precio final según las necesidades y servicios de tu negocio. Habla con nosotros y te hacemos tu presupuesto a medida.</i></p>
+<p>Incluye: Socio personalizado con tu nombre, conexión WhatsApp + Instagram, conexión a TSI para agendar, demo antes de pagar, soporte</p></div>
+
+<div class="card"><h2>Pago con Bizum + Tarjeta</h2>
+<p><b>A) BIZUM (Recomendado - más rápido)</b><br>Paga con Bizum al 603 489 654</p>
+<div style="background:#111;padding:12px;border-radius:10px">Haz Bizum de 900€ al 603 489 654. Concepto: SOCIO + Tu nombre de negocio. Después mándame la captura por WhatsApp y te activo tu Socio en 24h.</div>
+<a class="btn-green" href="https://wa.me/34603489654?text=Hola,%20he%20hecho%20el%20Bizum%20de%20mi%20Socio%20IA%20TSI">He hecho el Bizum - Enviar captura por WhatsApp</a>
+<button onclick="navigator.clipboard.writeText('603489654');alert('Copiado: 603489654')">Copiar número Bizum</button>
+<p><b>B) TARJETA</b><br>Paga con tarjeta (Stripe próximamente)</p><button>Pagar con tarjeta</button>
+<p class="small">El mantenimiento de 300€/mes puedes pagarlo también por Bizum cada mes, te avisamos por WhatsApp.</p></div>
+
+<div class="card" id="crear"><h2>Panel - Crear mi socio</h2><p>Configuración personalizada de tu IA</p>
+<input placeholder="Nombre del negocio"><select><option>Tatuador</option><option>Barbero</option><option>Dentista</option><option>Estética</option><option>Otro</option></select>
+<input placeholder="Instagram / Web"><input placeholder="Ciudad">
+<button onclick="alert('Socio creado. Tu link: tuagentetsi.com/demo/tu-negocio')">Crear mi socio</button>
+<p class="small">Al crear, genera link: tuagentetsi.com/demo/[nombre-negocio]</p></div>
+
+<div class="card" id="demo"><h2>🤖 Tu Socio IA - Demo de ejemplo</h2>
+<p class="small">WhatsApp: 603 489 654 | Esta demo aprende de cada conversación</p>
+<h2>1. ¿Qué negocio quieres probar?</h2>
+<button onclick="setNeg('Tattoo Barcelona Ink','tatuaje')">Tattoo Barcelona Ink</button>
+<button onclick="setNeg('Peluquería','peluquería')">Peluquería</button>
+<button onclick="setNeg('Clínica Dental','clínica dental')">Clínica Dental</button>
+<button onclick="setNeg('Gimnasio','gimnasio')">Gimnasio</button>
+<hr><label>¿Tu negocio no está aquí? Escríbelo:</label>
+<input id="negCustom" placeholder="Ej: barbería, restaurante, inmobiliaria, taller, academia...">
+<input id="nombreCustom" placeholder="Nombre de tu negocio. Ej: Barbería TSI">
+<button onclick="crearCustom()">✨ Crear mi demo</button>
+<p>Negocio activo: <b id="negActivo">Tattoo Barcelona Ink - tatuaje</b></p>
+<h2>2. Chat - Demo de ejemplo</h2><div id="chat"></div>
+<div style="display:flex;gap:6px"><input id="inp" placeholder="Escribe... Ej: hola, precio, cita"><button onclick="enviar()">➤</button></div>
+<div><button onclick="rapido('Hola')">Hola</button><button onclick="rapido('¿Cuánto cuesta?')">Precio</button><button onclick="rapido('Quiero una cita')">Cita</button><button onclick="verAprendido()">📚 Ver lo que ha aprendido</button></div>
+<div id="aprendido" class="small" style="margin-top:8px"></div>
+<h2>3. Calendario - Demo de ejemplo</h2><p id="calTitulo">Citas de Tattoo Barcelona Ink</p><div id="cal"></div><button onclick="verCal()">Ver calendario</button>
+<h2>4. CRM / Mis Clientes - Demo de ejemplo</h2><p>Tienes <b id="contador">0 clientes nuevos hoy</b></p>
+<table><thead><tr><th>Nombre</th><th>Qué pide</th><th>Estado</th><th></th></tr></thead><tbody id="crmBody"></tbody></table>
+<h2>5. Recordatorios - Demo de ejemplo</h2><div id="recordatorios"><p class="small">Aún no hay tareas. Cuando un cliente pida presupuesto y no conteste, aparecerá aquí.</p></div>
+<p class="small">Demo de ejemplo</p></div>
+
+<div class="card" id="radar"><h2>Radar Clientes - Tu Socio IA TSI</h2>
+<p>Tu herramienta de trabajo. Busca negocios que no contestan rápido y véndeles TSI.</p>
+<input placeholder="Nicho Ej: Tatuadores"><input placeholder="Ciudad Ej: Barcelona">
+<button onclick="buscarRadar()">Buscar clientes</button><br>
+<label><input type="checkbox" style="width:auto"> Saltar los que ya están en mi CRM</label><br>
+<label><input type="checkbox" style="width:auto"> Solo mostrar +80 puntos</label>
+<div id="radarList"></div><p class="small">12 negocios de ejemplo: 4 tatuadores, 4 barberos, 4 estéticas/dentistas - Barcelona, Madrid, Valencia, Sevilla</p></div>
+
+<div class="card-w"><span class="badge">EJEMPLO NOVA - BARBERÍA</span>
+<h2 style="color:#000">NOVA BARBER SHOP - Barberà del Vallès</h2><p style="color:#333">Corte, degradado, barba. Reserva en 30 segundos.</p>
+<div class="service-w"><span><b>Corte + Degradado</b><br><span class="old">25€</span> <b>15€ OFERTA</b></span><button onclick="reservarDemo('Corte + Degradado 15€')">RESERVAR</button></div>
+<div class="service-w"><span><b>Corte + Barba</b><br>22€</span><button onclick="reservarDemo('Corte + Barba 22€')">RESERVAR</button></div>
+<div class="service-w"><span><b>Afeitado Navaja</b><br>18€</span><button onclick="reservarDemo('Afeitado 18€')">RESERVAR</button></div>
+<div class="service-w"><span><b>Corte Infantil</b><br>14€</span><button onclick="reservarDemo('Corte Infantil 14€')">RESERVAR</button></div>
+<label>Tu nombre</label><input placeholder="Tu nombre"><label>Elige día</label><input type="date"><label>Elige hora</label><select><option>10:00</option><option>11:00</option><option>12:00</option><option>17:00</option><option>18:00</option><option>19:00</option></select>
+<button onclick="alert('Reserva recibida en NOVA. Te confirmamos por WhatsApp.')">CONFIRMAR RESERVA NOVA</button>
+<div class="qrbox"><h3>QR PARA PLACA</h3><p style="font-size:50px">▦▦▦</p><p>Escanea y reserva en NOVA BARBER SHOP - Barberà</p></div>
+<div class="opinion">⭐⭐⭐⭐⭐ <b>Marc R.</b> - "Reservé en 1 minuto, sin llamar."</div>
+<div class="opinion">⭐⭐⭐⭐⭐ <b>Alex P.</b> - "El corte de 15€ de oferta, brutal."</div>
+<p><b>Pago:</b> Bizum 603 489 654 | Efectivo | Tarjeta</p>
+<p><i>Ejemplo creado con Tu Socio IA - TSI. ¿Quieres una así? Habla con nosotros</i></p>
+<a class="btn" href="https://wa.me/34603489654">QUIERO UNA ASÍ - TSI</a></div>
+
+<div class="card-w"><span class="badge">EJEMPLO TATUAJE</span>
+<h2 style="color:#000">BARCELONA INK - Barcelona</h2><p style="color:#333">Estudio de tatuaje. Valoración gratis, sin compromiso.</p>
+<div class="service-w"><span><b>Tatuaje Pequeño</b><br>Desde 60€</span><button onclick="reservarDemo('Tatuaje Pequeño')">RESERVAR</button></div>
+<div class="service-w"><span><b>Tatuaje Mediano</b><br>Desde 120€</span><button onclick="reservarDemo('Tatuaje Mediano')">RESERVAR</button></div>
+<div class="service-w"><span><b>Sesión Completa / Manga</b><br>Presupuesto a medida</span><button onclick="reservarDemo('Sesión Completa')">RESERVAR</button></div>
+<label>Tu idea de tatuaje</label><textarea placeholder="Ej: Quiero un león en el brazo, mediano..."></textarea>
+<label>Tu WhatsApp</label><input placeholder="600 123 456">
+<button onclick="alert('Idea recibida en BARCELONA INK. Te valoramos gratis por WhatsApp.')">ENVIAR IDEA</button>
+<div class="qrbox"><h3>QR PARA PLACA</h3><p style="font-size:50px">▦▦▦</p><p>Escanea y valora tu tatuaje - BARCELONA INK</p></div>
+<div class="opinion">⭐⭐⭐⭐⭐ <b>Lucía G.</b> - "Me valoraron gratis el mismo día."</div>
+<div class="opinion">⭐⭐⭐⭐⭐ <b>Kevin S.</b> - "Reservé mi sesión sin llamar."</div>
+<p><b>Pago:</b> Bizum 603 489 654 | Efectivo | Tarjeta</p><p><i>Ejemplo creado con Tu Socio IA - TSI. ¿Quieres una así? Habla con nosotros</i></p>
+<a class="btn" href="https://wa.me/34603489654">QUIERO UNA ASÍ - TSI</a></div>
+
+<div class="card-w"><span class="badge">EJEMPLO DENTAL</span>
+<h2 style="color:#000">SONRISA CLÍNICA - Madrid</h2><p style="color:#333">Clínica Dental. Primera revisión gratis.</p>
+<div class="service-w"><span><b>Limpieza + Revisión</b><br>49€</span><button onclick="reservarDemo('Limpieza 49€')">RESERVAR</button></div>
+<div class="service-w"><span><b>Blanqueamiento</b><br>149€</span><button onclick="reservarDemo('Blanqueamiento 149€')">RESERVAR</button></div>
+<div class="service-w"><span><b>Primera Visita Gratis</b><br>0€</span><button onclick="reservarDemo('Primera Visita Gratis')">RESERVAR</button></div>
+<label>Tu nombre</label><input placeholder="Tu nombre"><label>¿Qué necesitas?</label><select><option>Limpieza</option><option>Blanqueamiento</option><option>Primera visita gratis</option><option>Dolor / Urgencia</option></select>
+<button onclick="alert('Reserva recibida en SONRISA. Te confirmamos por WhatsApp.')">RESERVAR CITA</button>
+<div class="qrbox"><h3>QR PARA PLACA</h3><p style="font-size:50px">▦▦▦</p><p>Escanea y reserva tu cita - SONRISA CLÍNICA Madrid</p></div>
+<div class="opinion">⭐⭐⭐⭐⭐ <b>Carmen L.</b> - "Reservé la limpieza en 2 minutos."</div>
+<div class="opinion">⭐⭐⭐⭐⭐ <b>David H.</b> - "Me atendieron el mismo día por urgencia."</div>
+<p><b>Pago:</b> Bizum 603 489 654 | Tarjeta | Financiación</p><p><i>Ejemplo creado con Tu Socio IA - TSI. ¿Quieres una así? Habla con nosotros</i></p>
+<a class="btn" href="https://wa.me/34603489654">QUIERO UNA ASÍ - TSI</a></div>
+
+<div class="card"><span class="badge">EJEMPLO TU NEGOCIO</span>
+<h2>TU NEGOCIO - Crea el tuyo</h2><p>No es solo para barberos. Es para cualquier negocio.</p>
+<label>¿Qué negocio tienes?</label><input id="tuNegocio" placeholder="Ej: Gimnasio, Restaurante, Taller...">
+<label>¿En qué ciudad?</label><input placeholder="Ej: Barcelona, Madrid...">
+<label>¿Qué servicio principal vendes y a qué precio?</label><input placeholder="Ej: Corte 15€, Clase 20€, Menú 12€...">
+<label>Tu WhatsApp / Bizum</label><input placeholder="Tu número">
+<button onclick="crearEjemplo()">CREAR MI EJEMPLO - TSI</button>
+<div id="tuEjemploChat" style="background:#111;padding:12px;border-radius:12px;margin-top:10px">Escribe tu negocio arriba y pulsa CREAR. Te hacemos tu ejemplo como los de arriba.</div>
+<p><i>Ejemplo creado con Tu Socio IA - TSI. ¿Quieres una así? Habla con nosotros</i></p></div>
+
+<div class="card"><h2>QR para tu negocio</h2><p>Escanea este QR y reserva directo. Si quieres una placa de plastico con tu QR para pegar en tu negocio, escribenos.</p>
+<div class="qrbox"><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://wa.me/34603489654?text=Hola%20TSI%20quiero%20reservar"><p><b>TU SOCIO IA - TSI</b><br>Escanea y reserva por WhatsApp<br>603 489 654</p></div>
+<a class="btn-green" href="https://wa.me/34603489654?text=Hola%20TSI%20quiero%20una%20placa%20con%20QR%20para%20mi%20negocio">QUIERO MI PLACA CON QR</a>
+<p class="small">Placa de plastico con QR + Web para negocios: pregunta precio por WhatsApp</p></div>
+<div class="card"><h2>Donde estamos</h2><p>Barbera del Valles, Barcelona<br>Lunes a Sabado 10:00 - 20:30<br>WhatsApp: 603 489 654 | Bizum: 603 489 654<br>Email: tusocioia.tsi@gmail.com</p>
+<a class="btn" href="https://wa.me/34603489654?text=Hola%20TSI%20donde%20estais%3F">PEDIR UBICACION POR WHATSAPP</a></div>
+
+<div class="card"><h2>FAQ</h2>
+<p><b>¿Necesito cambiar mi TSI?</b> No, se conecta a tu TSI actual<br>
+<b>¿Contesta de noche?</b> Sí, 24/7<br>
+<b>¿Puedo ver las conversaciones?</b> Sí, todas quedan guardadas<br>
+<b>¿Y si no me gusta?</b> Lo pruebas con la demo antes de pagar</p></div>
+
+<div class="card"><h2>¿Hablamos?</h2><p>Pulsa para abrir el chat TSI - no es flotante, no tapa nada</p><button onclick="document.getElementById('chatTSI').style.display='block'">Abrir chat ¿Hablamos?</button>
+<div id="chatTSI" style="display:none;background:#111;padding:12px;border-radius:12px;margin-top:10px">
+<p>Hola, soy tu Socio IA TSI. ¿Eres tatuador, barbero o clínica dental? Te digo en 30 segundos cómo te ayudo a no perder clientes.</p>
+<button onclick="alert('Perfecto. Yo contesto tus DMs en 2 segundos y agendo directo en TSI, incluso de noche. ¿Quieres que te haga una demo gratis con tu negocio?')">Soy tatuador / barbero / dentista</button>
+<button onclick="alert('Estamos en lanzamiento: 900€ + 300€/mes. Solo 10 plazas. Después será 1900€ + 500€/mes. ¿Te reservo una plaza?')">Precio</button>
+<button onclick="alert('Genial. Escríbeme por WhatsApp aquí y te lo monto.')">Sí / Quiero</button><br>
+<a class="btn-green" href="https://wa.me/34603489654?text=Hola,%20quiero%20mi%20Socio%20IA%20TSI">Hablar por WhatsApp</a></div></div>
+
+<div class="center" style="padding:20px"><p>Tu Socio IA TSI - Hecho para negocios que no pueden perder clientes por no contestar.<br>Contacto: tusocioia.tsi@gmail.com | WhatsApp: 603 489 654 | <a href="#radar" style="color:#D4AF37">Radar Clientes</a></p>
+<p class="small">Ejemplo creado con Tu Socio IA - TSI. ¿Quieres una así? Habla con nosotros</p></div>
+
+<a class="wa-float" href="https://wa.me/34603489654?text=Hola,%20quiero%20mi%20Socio%20IA%20TSI">💬</a>
+
+<script>
+let negocio="tatuaje", nombreNeg="Tattoo Barcelona Ink";
+let clientes=[], aprendido={}, preguntasVistas={};
+let dias=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"]; let huecos={};
+dias.forEach((d,i)=>{huecos[d]=[{h:"10:00",libre:true},{h:"12:00",libre:true},{h:"17:00",libre:i%2==0},{h:"19:00",libre:true}]});
+function setNeg(n,t){nombreNeg=n;negocio=t;document.getElementById('negActivo').textContent=n+" - "+t;document.getElementById('calTitulo').textContent="Citas de "+n;addIA("Hola, soy el asistente de "+n+". ¿En qué te ayudo? Pregunta por servicios, precio o cita.");verCal();}
+function crearCustom(){let t=document.getElementById('negCustom').value.trim()||"tu negocio";let n=document.getElementById('nombreCustom').value.trim()||t;setNeg(n,t);addIA("Perfecto, demo creada para "+n+". Ya hablo como si fuera "+t+". Dime qué necesitas.");}
+function addIA(t){let c=document.getElementById('chat');c.innerHTML+=`<div class="msg ia">${t}</div>`;c.scrollTop=9999;}
+function addYo(t){let c=document.getElementById('chat');c.innerHTML+=`<div class="msg yo">${t}</div>`;c.scrollTop=9999;}
+function rapido(t){document.getElementById('inp').value=t;enviar();}
+function enviar(){let i=document.getElementById('inp');let txt=i.value.trim();if(!txt)return;addYo(txt);i.value="";setTimeout(()=>responder(txt),400);}
+function responder(txt){
+ let low=txt.toLowerCase();
+ if(!preguntasVistas[low]){preguntasVistas[low]=1;aprendido[low]="Pregunta nueva aprendida: "+txt;} else {preguntasVistas[low]++;aprendido[low]="Ya la han preguntado "+preguntasVistas[low]+" veces, ahora contesto mejor.";}
+ if(low.includes("me llamo")){let nom=txt.split("me llamo")[1].trim();addCliente(nom,txt,"pidió información");}
+ if(low.includes("hola")||low.includes("buenas")){addIA(`Hola! Soy de ${nombreNeg} (${negocio}). ¿Buscas servicio, precio o cita?`);return;}
+ if(low.includes("precio")||low.includes("cuesta")||low.includes("cuanto")){
+   let r=negocio.includes("tatuaje")?"Un tatuaje pequeño orientativo desde 80-150€, media manga depende del diseño. Te hago valoración gratis, ¿quieres cita?":negocio.includes("barber")||negocio.includes("peluquer")?"Corte desde 18€, afeitado 15€. ¿Corte, afeitado o los dos?":negocio.includes("dental")?"Limpieza orientativa desde 50€, el precio exacto lo confirma la clínica. ¿Limpieza, empaste o revisión?":"Precio orientativo depende del servicio. Dime exactamente qué necesitas en "+negocio+" y te digo rango.";
+   addIA(r);return;}
+ if(low.includes("cita")||low.includes("reservar")||low.includes("hueco")){addIA("Tengo huecos libres esta semana. Mira el calendario abajo, elige un día y hora y te lo reservo. ¿Qué día te va bien?");verCal();return;}
+ addIA(`Eso lo tengo que confirmar con ${nombreNeg}, no quiero inventarme el precio ni el hueco. Déjame tu nombre y WhatsApp y te avisamos. ¿Quieres que te pase con TSI ahora mismo?`);
+ addIA(`<a href="https://wa.me/34603489654?text=Hola TSI, tengo una duda sobre ${negocio}" target="_blank"><button>💬 Hablar con TSI por WhatsApp</button></a>`);
+ addCliente("Cliente sin nombre",txt,"duda sin resolver");
+}
+function addCliente(nom,que,estado){
+ clientes.push({nom,que,estado});document.getElementById('contador').textContent=clientes.length+" clientes nuevos hoy";
+ let b=document.getElementById('crmBody');b.innerHTML="";
+ clientes.forEach((c,i)=>{b.innerHTML+=`<tr><td>${c.nom}</td><td>${c.que.slice(0,30)}</td><td>${c.estado}</td><td><button onclick="cambiar(${i})">Cambiar</button></td></tr>`});
+ document.getElementById('recordatorios').innerHTML=`<p>📞 Llamar a ${nom} para seguimiento de: ${que}</p><button onclick="this.parentElement.innerHTML='✅ Hecho'">Marcar como hecho</button><p>📅 Mañana tienes cita con ${nom} a las 17:00 (demo)</p>`;
+}
+function cambiar(i){let estados=["pidió información","presupuesto enviado","cita agendada","venta cerrada"];let act=clientes[i].estado;clientes[i].estado=estados[(estados.indexOf(act)+1)%estados.length]||estados[0];addClienteRefresh();}
+function addClienteRefresh(){let b=document.getElementById('crmBody');b.innerHTML="";clientes.forEach((c,i)=>{b.innerHTML+=`<tr><td>${c.nom}</td><td>${c.que.slice(0,30)}</td><td>${c.estado}</td><td><button onclick="cambiar(${i})">Cambiar</button></td></tr>`});}
+function verCal(){let h="";dias.forEach(d=>{h+=`<b>${d}</b>: `;huecos[d].forEach((s,idx)=>{h+=`<button onclick="reservarCal('${d}',${idx})" style="background:${s.libre?'#2ecc71':'#e74c3c'}">${s.h} ${s.libre?'Libre':'Ocupado'}</button>`});h+="<br>";});document.getElementById('cal').innerHTML=h;}
+function reservarCal(d,idx){if(!huecos[d][idx].libre){addIA("Ese hueco ya está ocupado, elige otro.");return;}huecos[d][idx].libre=false;verCal();addIA(`Cita reservada, demo. ${d} a las ${huecos[d][idx].h} en ${nombreNeg}. ✅`);addCliente("Cliente cita "+d, "Cita "+d+" "+huecos[d][idx].h,"cita agendada");}
+function verAprendido(){let t="<b>Lo que ha aprendido:</b><br>";for(let k in aprendido)t+=`• ${aprendido[k]}<br>`;document.getElementById('aprendido').innerHTML=t||"Aún no ha aprendido nada, habla con él.";}
+function reservarDemo(s){alert('Has elegido: '+s+'. Te confirmamos por WhatsApp.');}
+function crearEjemplo(){let v=document.getElementById('tuNegocio').value||'tu negocio';document.getElementById('tuEjemploChat').innerHTML='✅ Ejemplo creado para: <b>'+v+'</b>. Te hacemos web como la de NOVA / BARCELONA INK / SONRISA. Escríbenos por WhatsApp y te lo montamos.';}
+let radarData=[
+{n:"Tattoo Barcelona Ink",c:"Barcelona",r:"4.8 - 250 reseñas",p:92},{n:"Tattoo Madrid Arte",c:"Madrid",r:"4.7 - 180 reseñas",p:88},{n:"Ink Valencia",c:"Valencia",r:"4.9 - 320 reseñas",p:95},{n:"Sevilla Tattoo Studio",c:"Sevilla",r:"4.6 - 140 reseñas",p:84},
+{n:"Barbería El Corte Fino",c:"Madrid",r:"4.8 - 210 reseñas",p:90},{n:"NOVA Barber",c:"Barberà",r:"5.0 - 120 reseñas",p:96},{n:"Barber Valencia",c:"Valencia",r:"4.7 - 160 reseñas",p:87},{n:"Sevilla Barber",c:"Sevilla",r:"4.8 - 190 reseñas",p:89},
+{n:"Clínica Sonrisa",c:"Madrid",r:"4.9 - 340 reseñas",p:94},{n:"Estética Luna",c:"Barcelona",r:"4.8 - 150 reseñas",p:88},{n:"Dental Valencia",c:"Valencia",r:"4.7 - 200 reseñas",p:86},{n:"Estética Sevilla",c:"Sevilla",r:"4.9 - 180 reseñas",p:91}
+];
+function buscarRadar(){let l=document.getElementById('radarList');l.innerHTML=radarData.map(b=>`<div style="background:#111;padding:12px;border-radius:12px;margin:10px 0"><b>${b.n} - ${b.c}</b> <span style="color:#D4AF37">⭐ ${b.r} | ${b.p}/100</span><p class="small">No contesta rápido en Instagram. Oportunidad alta para TSI.</p><button onclick="alert('Mensaje para ${b.n}: Hola, soy de Tu Socio IA TSI. Vi que tenéis ${b.r} y os ayudamos a contestar en 2 seg y agendar en TSI. ¿Te hago demo gratis?')">Generar mensaje</button> <button onclick="alert('Email para ${b.n}: Asunto: No pierdas más clientes por no contestar - Te hacemos demo gratis')">Generar email</button> <button onclick="alert('Guion 30s para ${b.n}: Hola, soy de Tu Socio IA, ¿tienes 30 seg? Vi vuestras reseñas y os ayudamos a no perder clientes de noche...')">Guion llamada</button></div>`).join('');}
+document.getElementById('inp').addEventListener('keydown',e=>{if(e.key==='Enter')enviar();});
+verCal();addIA("Hola, soy el asistente de Tattoo Barcelona Ink. ¿Buscas tatuaje, piercing, precio o cita?");
+</script>
+</body>
+</html>
