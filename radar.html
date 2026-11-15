@@ -34,7 +34,7 @@ input,select{width:100%;padding:11px;border-radius:9px;border:1px solid #3a3a3a;
 <body>
 <div class="wrap">
   <h1>📡 Radar Real TSI</h1>
-  <p class="small">Escribe libremente cualquier tipo de negocio y cualquier ciudad para buscar negocios reales en tiempo real.</p>
+  <p class="small">Escribe libremente cualquier negocio y ciudad para localizar negocios reales en tiempo real.</p>
 
   <div class="tabs">
     <button id="tabBuscarBtn" onclick="verPestana('buscar')">🔍 Buscador libre en vivo</button>
@@ -49,25 +49,25 @@ input,select{width:100%;padding:11px;border-radius:9px;border:1px solid #3a3a3a;
       <div class="grid3">
         <div>
           <label class="small">Negocio o sector (escribe lo que quieras)</label>
-          <input id="inpNegocio" placeholder="Ej: dentista, reformas, óptica, tatuajes, bar... (vacío = todos)">
+          <input id="inpNegocio" placeholder="Ej: dentista, reformas, tatuajes, bar... (vacío = todos)">
         </div>
         <div>
           <label class="small">Ciudad, barrio o pueblo *</label>
-          <input id="inpCiudad" placeholder="Ej: Sabadell, Valencia, Chamberí Madrid...">
+          <input id="inpCiudad" placeholder="Ej: Sabadell, Barberà del Vallès, Madrid...">
         </div>
         <div>
           <label class="small">Radio</label>
           <select id="selRadio">
             <option value="2000">2 km</option>
-            <option value="5000" selected>5 km</option>
-            <option value="10000">10 km</option>
-            <option value="20000">20 km</option>
+            <option value="4000" selected>4 km</option>
+            <option value="8000">8 km</option>
+            <option value="15000">15 km</option>
           </select>
         </div>
       </div>
 
       <div style="margin:6px 0">
-        <span class="small">Búsquedas rápidas: </span>
+        <span class="small">Atajos rápidos: </span>
         <button class="btn-sm btn-dark" onclick="ponerBusqueda('peluquería')">Peluquerías</button>
         <button class="btn-sm btn-dark" onclick="ponerBusqueda('tatuajes')">Tatuajes</button>
         <button class="btn-sm btn-dark" onclick="ponerBusqueda('dentista')">Dentistas</button>
@@ -187,44 +187,100 @@ function abrirEnGoogleMaps(){
   window.open(`https://www.google.com/maps/search/${encodeURIComponent(neg + " en " + ciu)}`, "_blank");
 }
 
+function fetchConTimeout(url, options={}, ms=10000){
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), ms);
+  return fetch(url, {...options, signal: ctrl.signal}).finally(() => clearTimeout(timer));
+}
+
+async function localizarCiudad(ciudad, soloEs){
+  const qGeo = soloEs && !ciudad.toLowerCase().includes("españa") ? `${ciudad}, España` : ciudad;
+
+  // Intento 1: Nominatim
+  try{
+    setStatus(`1/2 Localizando "${ciudad}" (Nominatim)...`);
+    const r = await fetchConTimeout(`https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=${encodeURIComponent(qGeo)}`, {}, 6000);
+    if(r.ok){
+      const d = await r.json();
+      if(d && d.length) return {lat: d[0].lat, lon: d[0].lon, nombre: d[0].display_name};
+    }
+  }catch(e){}
+
+  // Intento 2: Photon (Komoot)
+  try{
+    setStatus(`1/2 Localizando "${ciudad}" (Photon)...`);
+    const r = await fetchConTimeout(`https://photon.komoot.io/api/?q=${encodeURIComponent(qGeo)}&limit=1`, {}, 6000);
+    if(r.ok){
+      const d = await r.json();
+      if(d && d.features && d.features.length){
+        const f = d.features[0];
+        return {
+          lat: f.geometry.coordinates[1],
+          lon: f.geometry.coordinates[0],
+          nombre: [f.properties.name, f.properties.city, f.properties.country].filter(Boolean).join(", ")
+        };
+      }
+    }
+  }catch(e){}
+
+  // Intento 3: Open-Meteo Geocoding
+  try{
+    setStatus(`1/2 Localizando "${ciudad}" (Open-Meteo)...`);
+    const cleanCity = ciudad.split(",")[0].trim();
+    const r = await fetchConTimeout(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cleanCity)}&count=3&language=es`, {}, 6000);
+    if(r.ok){
+      const d = await r.json();
+      if(d && d.results && d.results.length){
+        const match = soloEs ? (d.results.find(x => x.country_code === "ES") || d.results[0]) : d.results[0];
+        return {
+          lat: match.latitude,
+          lon: match.longitude,
+          nombre: [match.name, match.admin1, match.country].filter(Boolean).join(", ")
+        };
+      }
+    }
+  }catch(e){}
+
+  throw new Error(`No se pudo localizar "${ciudad}". Comprueba tu conexión o prueba con el nombre de la ciudad principal.`);
+}
+
 function construirQueryLibre(terminoRaw, radio, lat, lon){
   const p = `(around:${radio},${lat},${lon})`;
   const low = terminoRaw.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
 
-  // Si está vacío o pide "todos", busca comercios, servicios, oficinas y oficios
   if(!low || low === "todo" || low === "todos"){
-    return `[out:json][timeout:25];(
-      nwr["shop"]["name"]${p};
-      nwr["amenity"~"restaurant|cafe|bar|dentist|clinic|veterinary|pharmacy|driving_school"]["name"]${p};
-      nwr["office"]["name"]${p};
-      nwr["craft"]["name"]${p};
-    );out center 120;`;
+    return `[out:json][timeout:12];(
+      nw["shop"]["name"]${p};
+      nw["amenity"~"restaurant|cafe|bar|dentist|clinic|veterinary|pharmacy|driving_school"]["name"]${p};
+      nw["office"]["name"]${p};
+      nw["craft"]["name"]${p};
+    );out center 100;`;
   }
 
   const reglas = [
-    {keys:["barber","peluquer","corte","estilista"], q:`nwr["shop"~"hairdresser|barber"]${p};`},
-    {keys:["tatu","tattoo","pierc"], q:`nwr["shop"="tattoo"]${p};nwr["amenity"="tattoo"]${p};`},
-    {keys:["dent","odont","ortodon","boca"], q:`nwr["amenity"="dentist"]${p};nwr["healthcare"="dentist"]${p};`},
-    {keys:["estet","bellez","una","manic","pedic","masaj","spa","depil","laser"], q:`nwr["shop"~"beauty|cosmetics|massage"]${p};nwr["leisure"="spa"]${p};`},
-    {keys:["gimn","fit","crossfit","yoga","pilates","deport"], q:`nwr["leisure"~"fitness_centre|sports_centre"]${p};`},
-    {keys:["restaur","bar","cafet","pizz","hamburg","sushi","comida","tapas"], q:`nwr["amenity"~"restaurant|cafe|bar|fast_food"]${p};`},
-    {keys:["taller","mecan","coche","auto","neumat","chapa","moto"], q:`nwr["shop"~"car_repair|tyres|car|motorcycle_repair"]${p};`},
-    {keys:["inmob","piso","casa","alquiler","finca"], q:`nwr["office"="estate_agent"]${p};`},
-    {keys:["veterin","mascot","perro","gato"], q:`nwr["amenity"="veterinary"]${p};nwr["shop"="pet"]${p};`},
-    {keys:["fisio","osteop","podol","psicolog","medic","clinic","salud"], q:`nwr["healthcare"]${p};nwr["amenity"~"clinic|doctors"]${p};`},
-    {keys:["abogad","gestor","asesor","notari","contab","despacho"], q:`nwr["office"~"lawyer|accountant|tax_advisor|notary|company"]${p};`},
-    {keys:["fontan","electri","reform","carpint","pintor","cerraj","climatiz","aire"], q:`nwr["craft"]${p};`},
-    {keys:["optic","gafas"], q:`nwr["shop"="optician"]${p};`},
-    {keys:["farmac"], q:`nwr["amenity"="pharmacy"]${p};`},
-    {keys:["panad","pastel","confiter","horno"], q:`nwr["shop"~"bakery|pastry"]${p};`},
-    {keys:["flor"], q:`nwr["shop"="florist"]${p};`},
-    {keys:["academ","autoesc","idiom","clases","coleg","guarder"], q:`nwr["amenity"~"school|language_school|driving_school|kindergarten"]${p};`},
-    {keys:["hotel","hostal","turismo","apartament"], q:`nwr["tourism"~"hotel|hostel|guest_house|apartment"]${p};`},
-    {keys:["ropa","moda","zapat"], q:`nwr["shop"~"clothes|shoes|boutique"]${p};`},
-    {keys:["joyer","reloj"], q:`nwr["shop"~"jewelry|watches"]${p};`},
-    {keys:["ferret","bricol"], q:`nwr["shop"~"hardware|doityourself"]${p};`},
-    {keys:["lavand","tintorer"], q:`nwr["shop"~"laundry|dry_cleaning"]${p};`},
-    {keys:["fotograf"], q:`nwr["shop"="photo"]${p};nwr["craft"="photographer"]${p};`}
+    {keys:["barber","peluquer","corte","estilista"], q:`nw["shop"~"hairdresser|barber"]${p};`},
+    {keys:["tatu","tattoo","pierc"], q:`nw["shop"="tattoo"]${p};nw["amenity"="tattoo"]${p};`},
+    {keys:["dent","odont","ortodon","boca"], q:`nw["amenity"="dentist"]${p};nw["healthcare"="dentist"]${p};`},
+    {keys:["estet","bellez","una","manic","pedic","masaj","spa","depil","laser"], q:`nw["shop"~"beauty|cosmetics|massage"]${p};nw["leisure"="spa"]${p};`},
+    {keys:["gimn","fit","crossfit","yoga","pilates","deport"], q:`nw["leisure"~"fitness_centre|sports_centre"]${p};`},
+    {keys:["restaur","bar","cafet","pizz","hamburg","sushi","comida","tapas"], q:`nw["amenity"~"restaurant|cafe|bar|fast_food"]${p};`},
+    {keys:["taller","mecan","coche","auto","neumat","chapa","moto"], q:`nw["shop"~"car_repair|tyres|car|motorcycle_repair"]${p};`},
+    {keys:["inmob","piso","casa","alquiler","finca"], q:`nw["office"="estate_agent"]${p};`},
+    {keys:["veterin","mascot","perro","gato"], q:`nw["amenity"="veterinary"]${p};nw["shop"="pet"]${p};`},
+    {keys:["fisio","osteop","podol","psicolog","medic","clinic","salud"], q:`nw["healthcare"]${p};nw["amenity"~"clinic|doctors"]${p};`},
+    {keys:["abogad","gestor","asesor","notari","contab","despacho"], q:`nw["office"~"lawyer|accountant|tax_advisor|notary|company"]${p};`},
+    {keys:["fontan","electri","reform","carpint","pintor","cerraj","climatiz","aire"], q:`nw["craft"]${p};`},
+    {keys:["optic","gafas"], q:`nw["shop"="optician"]${p};`},
+    {keys:["farmac"], q:`nw["amenity"="pharmacy"]${p};`},
+    {keys:["panad","pastel","confiter","horno"], q:`nw["shop"~"bakery|pastry"]${p};`},
+    {keys:["flor"], q:`nw["shop"="florist"]${p};`},
+    {keys:["academ","autoesc","idiom","clases","coleg","guarder"], q:`nw["amenity"~"school|language_school|driving_school|kindergarten"]${p};`},
+    {keys:["hotel","hostal","turismo","apartament"], q:`nw["tourism"~"hotel|hostel|guest_house|apartment"]${p};`},
+    {keys:["ropa","moda","zapat"], q:`nw["shop"~"clothes|shoes|boutique"]${p};`},
+    {keys:["joyer","reloj"], q:`nw["shop"~"jewelry|watches"]${p};`},
+    {keys:["ferret","bricol"], q:`nw["shop"~"hardware|doityourself"]${p};`},
+    {keys:["lavand","tintorer"], q:`nw["shop"~"laundry|dry_cleaning"]${p};`},
+    {keys:["fotograf"], q:`nw["shop"="photo"]${p};nw["craft"="photographer"]${p};`}
   ];
 
   let bloques = [];
@@ -232,34 +288,38 @@ function construirQueryLibre(terminoRaw, radio, lat, lon){
     if(r.keys.some(k => low.includes(k))) bloques.push(r.q);
   });
 
-  // Siempre buscar también por coincidencia en el nombre del negocio
   const cleanName = terminoRaw.replace(/[.*+?^${}()|[\]\\"]/g,"").trim();
   if(cleanName.length >= 2){
-    bloques.push(`nwr["name"~"${cleanName}",i]${p};`);
+    bloques.push(`nw["name"~"${cleanName}",i]${p};`);
   }
 
-  return `[out:json][timeout:25];(${bloques.join("")});out center 120;`;
+  return `[out:json][timeout:12];(${bloques.join("")});out center 100;`;
 }
 
-async function consultarOverpass(query){
+async function consultarOverpass(query, zonaNombre){
   const endpoints = [
-    "https://overpass-api.de/api/interpreter",
-    "https://z.overpass-api.de/api/interpreter"
+    {name:"PrivateCoffee", url:"https://overpass.private.coffee/api/interpreter"},
+    {name:"MailRu OSM", url:"https://maps.mail.ru/osm/tools/overpass/api/interpreter"},
+    {name:"Overpass DE", url:"https://overpass-api.de/api/interpreter"}
   ];
-  let ultimoErr = null;
-  for(const url of endpoints){
+
+  for(let i=0; i<endpoints.length; i++){
+    const ep = endpoints[i];
     try{
-      const r = await fetch(url, {
+      setStatus(`2/2 Zona: ${zonaNombre} · Consultando servidor ${i+1}/${endpoints.length} (${ep.name})...`);
+      const r = await fetchConTimeout(ep.url, {
         method: "POST",
         body: new URLSearchParams({data: query})
-      });
-      if(r.ok) return await r.json();
-      ultimoErr = "Servidor ocupado (" + r.status + ")";
+      }, 11000);
+      if(r.ok){
+        const json = await r.json();
+        if(json && Array.isArray(json.elements)) return json;
+      }
     }catch(e){
-      ultimoErr = e.message;
+      // Pasa automáticamente al siguiente servidor si tarda >11s o falla
     }
   }
-  throw new Error(ultimoErr || "Error consultando base de datos");
+  throw new Error("Los servidores gratuitos de OpenStreetMap están saturados ahora mismo. Prueba reducir el radio o usa 'Abrir búsqueda en Google Maps'.");
 }
 
 function setStatus(msg, isErr=false){
@@ -284,21 +344,11 @@ async function buscarReales(){
 
   btn.disabled = true;
   btn.textContent = "⏳ Buscando en vivo...";
-  setStatus(`Localizando "${ciudad}" y buscando "${termino || 'todos los negocios'}"...`);
 
   try{
-    const qGeo = soloEs && !ciudad.toLowerCase().includes("españa") ? `${ciudad}, España` : ciudad;
-    const geoRes = await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=${encodeURIComponent(qGeo)}`);
-    if(!geoRes.ok) throw new Error("No se pudo localizar la ciudad");
-    const geo = await geoRes.json();
-    if(!geo.length) throw new Error(`No se encontró "${ciudad}". Prueba añadiendo provincia o país.`);
-
-    const lat = geo[0].lat;
-    const lon = geo[0].lon;
-    setStatus(`Zona: ${geo[0].display_name}. Descargando negocios reales...`);
-
-    const q = construirQueryLibre(termino, radio, lat, lon);
-    const data = await consultarOverpass(q);
+    const geo = await localizarCiudad(ciudad, soloEs);
+    const q = construirQueryLibre(termino, radio, geo.lat, geo.lon);
+    const data = await consultarOverpass(q, geo.nombre);
 
     const vistos = new Set();
     const lista = [];
@@ -341,7 +391,7 @@ async function buscarReales(){
     setStatus(`✅ Encontrados ${lista.length} negocios reales en ${ciudad}.`);
     renderResultadosReales();
   }catch(err){
-    setStatus(`❌ Error: ${err.message}. Reintenta en unos segundos.`, true);
+    setStatus(`❌ ${err.message}`, true);
   }finally{
     btn.disabled = false;
     btn.textContent = "📡 Buscar negocios reales";
