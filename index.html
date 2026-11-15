@@ -6,157 +6,126 @@
 <title>TU SOCIO IA TSI | Web + Socio IA + Agenda + CRM 24/7</title>
 <style>
 *{box-sizing:border-box}
-body{font-family:system-ui,-apple-system,Arial,sans-serif;margin:0;background:#0A0A0A;color:#fff;padding:14px;padding-bottom:105px;line-height:1.45}
+body{font-family:system-ui,Arial,sans-serif;margin:0;background:#0A0A0A;color:#fff;padding:14px;padding-bottom:105px;line-height:1.45}
 .wrap{max-width:860px;margin:0 auto}
-h1{font-size:28px;line-height:1.15;margin:10px 0}
+h1{font-size:27px;line-height:1.15;margin:10px 0}
 h2{font-size:20px;color:#D4AF37;margin:0 0 10px}
 h3{font-size:17px;margin:8px 0}
-.card{background:#161616;border:1px solid #2e2e2e;border-radius:16px;padding:18px;margin:14px 0}
-.card-w{background:#fff;color:#111;border-radius:16px;padding:18px;margin:14px 0}
-button,.btn{background:#D4AF37;border:0;padding:12px 16px;border-radius:10px;font-weight:700;margin:4px 3px;cursor:pointer;color:#000;text-decoration:none;display:inline-block;text-align:center;white-space:normal;line-height:1.3;font-size:14px}
+.card{background:#161616;border:1px solid #2e2e2e;border-radius:15px;padding:16px;margin:12px 0}
+.card-w{background:#fff;color:#111;border-radius:15px;padding:16px;margin:12px 0}
+button,.btn{background:#D4AF37;border:0;padding:11px 15px;border-radius:10px;font-weight:700;margin:4px 2px;cursor:pointer;color:#000;text-decoration:none;display:inline-block;text-align:center;white-space:normal;line-height:1.3;font-size:14px}
 .btn-dark{background:#262626;color:#fff;border:1px solid #444}
-.btn-green{background:#25D366;color:#fff;padding:13px 18px;border-radius:12px;font-weight:700;text-decoration:none;display:block;text-align:center;margin-top:10px}
+.btn-green{background:#25D366;color:#fff;padding:13px 16px;border-radius:12px;font-weight:700;text-decoration:none;display:block;text-align:center;margin-top:10px}
 .btn-sm{padding:7px 10px;font-size:12px;border-radius:8px}
-input,select,textarea{width:100%;padding:11px;border-radius:10px;border:1px solid #3a3a3a;background:#0f0f0f;color:#fff;margin:6px 0;font-size:15px}
-.card-w input,.card-w select,.card-w textarea{background:#f9f9f9;color:#111;border:1px solid #d4d4d4}
+input,select{width:100%;padding:10px;border-radius:9px;border:1px solid #3a3a3a;background:#0f0f0f;color:#fff;margin:5px 0;font-size:15px}
+.card-w input,.card-w select{background:#f7f7f7;color:#111;border:1px solid #ccc}
 .small{font-size:12px;color:#aaa}
-.badge{background:#D4AF37;color:#000;padding:5px 12px;border-radius:20px;display:inline-block;font-size:12px;font-weight:700}
-.center{text-align:center}
-.old{text-decoration:line-through;color:#555}
-.price{background:#D4AF37;color:#000;padding:22px;border-radius:16px;text-align:center;margin:14px 0}
-.price2{background:#1c1c1c;padding:20px;border-radius:16px;text-align:center;border:1px solid #333;margin:14px 0}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.badge{background:#D4AF37;color:#000;padding:5px 11px;border-radius:20px;display:inline-block;font-size:12px;font-weight:700}
+.center{text-align:center}.old{text-decoration:line-through;color:#555}
+.price{background:#D4AF37;color:#000;padding:20px;border-radius:15px;text-align:center;margin:12px 0}
+.price2{background:#1c1c1c;padding:18px;border-radius:15px;text-align:center;border:1px solid #333;margin:12px 0}
+.grid2,.grid-img{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:600px){.grid2{grid-template-columns:1fr}}
-.grid-img{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-img.foto{width:100%;height:160px;object-fit:cover;border-radius:12px;margin-top:8px}
-#chat{height:290px;overflow-y:auto;background:#0c0c0c;border:1px solid #2a2a2a;border-radius:12px;padding:12px}
-.msg{margin:8px 0;padding:10px 12px;border-radius:12px;max-width:86%;word-wrap:break-word;font-size:14px}
-.yo{background:#D4AF37;color:#000;margin-left:auto}
-.ia{background:#242424;color:#fff}
+img.foto{width:100%;height:150px;object-fit:cover;border-radius:10px;margin-top:6px}
+#chat{height:270px;overflow-y:auto;background:#0c0c0c;border:1px solid #2a2a2a;border-radius:12px;padding:10px}
+.msg{margin:7px 0;padding:9px 11px;border-radius:11px;max-width:86%;word-wrap:break-word;font-size:14px}
+.yo{background:#D4AF37;color:#000;margin-left:auto}.ia{background:#242424;color:#fff}
 .cal-days{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin:8px 0}
-.day-btn{background:#222;color:#fff;border:1px solid #444;padding:8px 12px;border-radius:10px;white-space:nowrap;font-size:13px}
+.day-btn{background:#222;color:#fff;border:1px solid #444;padding:8px 11px;border-radius:9px;white-space:nowrap;font-size:13px}
 .day-btn.active{background:#D4AF37;color:#000;border-color:#D4AF37}
-.slots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
-.slot{padding:10px 6px;border-radius:10px;border:0;font-weight:700;cursor:pointer;font-size:13px}
-.slot.libre{background:#1e8449;color:#fff}
-.slot.ocupado{background:#922b21;color:#ddd;cursor:not-allowed;opacity:0.75}
-.slot.selected{outline:3px solid #D4AF37}
-.booking-box{background:#101010;border:1px solid #D4AF37;border-radius:12px;padding:12px;margin-top:12px;display:none}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
-td,th{padding:8px 6px;border-bottom:1px solid #2e2e2e;text-align:left}
+.slots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}
+.slot{padding:9px 5px;border-radius:9px;border:0;font-weight:700;cursor:pointer;font-size:13px}
+.slot.libre{background:#1e8449;color:#fff}.slot.ocupado{background:#922b21;color:#ddd;cursor:not-allowed;opacity:.75}.slot.selected{outline:3px solid #D4AF37}
+.booking-box{background:#101010;border:1px solid #D4AF37;border-radius:11px;padding:12px;margin-top:10px;display:none}
+.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px;min-width:500px}
+td,th{padding:7px 5px;border-bottom:1px solid #2e2e2e;text-align:left}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.tab-btn{background:#222;color:#fff;border:1px solid #444}
-.tab-btn.active{background:#D4AF37;color:#000;border-color:#D4AF37}
-.service-w{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#f2f2f2;padding:12px;border-radius:12px;margin:8px 0}
-.opinion{background:#f2f2f2;color:#111;padding:10px 12px;border-radius:10px;margin:8px 0;font-size:14px}
-.qrbox{background:#fff;color:#000;border-radius:14px;padding:14px;text-align:center;margin-top:12px;border:1px solid #e5e5e5}
-.qrbox img{width:170px;height:170px;border-radius:8px}
-.rem-item{background:#101010;border-left:4px solid #D4AF37;padding:10px 12px;border-radius:8px;margin:8px 0}
-.link-box{background:#0b0b0b;border:1px dashed #D4AF37;padding:12px;border-radius:12px;margin-top:10px;display:none}
+.tab-btn{background:#222;color:#fff;border:1px solid #444}.tab-btn.active{background:#D4AF37;color:#000;border-color:#D4AF37}
+.service-w{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#f2f2f2;padding:10px;border-radius:10px;margin:7px 0}
+.opinion{background:#f2f2f2;color:#111;padding:9px 11px;border-radius:10px;margin:7px 0;font-size:14px}
+.qrbox{background:#fff;color:#000;border-radius:12px;padding:12px;text-align:center;margin-top:10px;border:1px solid #e5e5e5}
+.qrbox img{width:165px;height:165px}
+.rem-item{background:#101010;border-left:4px solid #D4AF37;padding:9px 11px;border-radius:8px;margin:7px 0}
+.link-box{background:#0b0b0b;border:1px dashed #D4AF37;padding:11px;border-radius:11px;margin-top:10px;display:none}
 .wa-float{position:fixed;right:16px;bottom:16px;width:48px;height:48px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;z-index:999;box-shadow:0 4px 14px rgba(0,0,0,.6)}
-.banner-demo{background:#D4AF37;color:#000;padding:10px 14px;border-radius:12px;font-weight:700;margin-bottom:12px;display:none;text-align:center}
+.banner-demo{background:#D4AF37;color:#000;padding:10px;border-radius:11px;font-weight:700;margin-bottom:10px;display:none;text-align:center}
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <div id="bannerCustom" class="banner-demo"></div>
 
-<div class="center" style="padding:18px 0">
-  <span class="badge">👑 TU SOCIO IA TSI</span>
-  <span class="badge">Solo 10 plazas de lanzamiento</span>
+<div class="center" style="padding:14px 0">
+  <span class="badge">👑 TU SOCIO IA TSI</span> <span class="badge">Solo 10 plazas de lanzamiento</span>
   <h1>Tu Socio IA que contesta, agenda y vende por ti. 24/7.</h1>
-  <p>Tu Socio IA TSI contesta tus DMs de Instagram y WhatsApp en 2 segundos, agenda en tu calendario y no deja escapar ningún cliente. Mientras tú trabajas o descansas, él vende.</p>
+  <p>Contesta tus DMs de Instagram y WhatsApp en 2 segundos, agenda en tu calendario y no deja escapar ningún cliente. Mientras tú trabajas o descansas, él vende.</p>
   <div>
     <a class="btn" href="#crear">Crear mi socio gratis</a>
     <a class="btn" href="#demo">Probar demo en vivo</a>
-    <a class="btn btn-dark" href="#ejemplos">Ver ejemplos por sector</a>
+    <a class="btn btn-dark" href="#ejemplos">Ver ejemplos</a>
   </div>
-  <p class="small">Contacto: tusocioia.tsi@gmail.com | WhatsApp: 603 489 654 | Bizum: 603 489 654</p>
+  <p class="small">tusocioia.tsi@gmail.com | WhatsApp y Bizum: 603 489 654</p>
 </div>
 
 <div class="card">
   <h2>¿Por qué Tu Socio IA TSI?</h2>
-  <p>❌ Empleada recepcionista: 2.000€/mes, duerme, no contesta de noche ni festivos, se pone enferma.<br>
-  ✅ <b>Tu Socio IA TSI: 300€/mes, nunca duerme (24/7 · 365 días), contesta en 2 segundos y agenda citas.</b></p>
+  <p>❌ Empleada recepcionista: 2.000€/mes, duerme, no contesta de noche ni festivos.<br>
+  ✅ <b>Tu Socio IA TSI: 300€/mes, 24/7 · 365 días, contesta en 2 segundos y agenda citas.</b></p>
   <p style="color:#D4AF37;font-weight:700;margin:0">Te ahorras 1.700€ al mes desde el primer día.</p>
 </div>
 
 <div class="card">
   <h2>Cómo funciona en 3 pasos</h2>
-  <p><b>1.</b> Eliges o escribes tu tipo de negocio.<br>
-  <b>2.</b> Conectamos tus servicios, precios, horarios e Instagram/WhatsApp.<br>
-  <b>3.</b> En 30 segundos tienes tu demo activa para probarla y compartirla.</p>
-  <p style="margin:0"><b>DEMO EN 30 SEGUNDOS · LA NOCHE NO ESPERA.</b></p>
+  <p style="margin:0"><b>1.</b> Eliges o escribes tu negocio. <b>2.</b> Conectamos servicios, precios, horarios y canales. <b>3.</b> En 30 segundos tienes tu demo activa y compartible.<br><b>DEMO EN 30 SEGUNDOS · LA NOCHE NO ESPERA.</b></p>
 </div>
 
 <div class="card">
-  <h2>Para cualquier negocio que atienda clientes</h2>
-  <p style="margin:0"><b>Tatuadores:</b> cualifica idea, tamaño, estilo y agenda valoración.<br>
-  <b>Barberías y Peluquerías:</b> corte, degradado, barba, elige día/hora y reserva.<br>
-  <b>Clínicas Dentales y Estética:</b> revisiones, limpiezas, tratamientos y urgencias.<br>
-  <b>Gimnasios, Restaurantes, Talleres, Academias, Inmobiliarias y más:</b> se adapta a las reglas y precios de tu negocio.</p>
+  <h2>Para cualquier negocio</h2>
+  <p style="margin:0"><b>Tatuadores, Barberías, Peluquerías, Clínicas Dentales, Estética, Gimnasios, Restaurantes, Talleres, Academias, Inmobiliarias y más:</b> se adapta a las reglas y precios de tu negocio.</p>
 </div>
 
 <div class="price">
   <h2 style="color:#000">OFERTA LANZAMIENTO - Primeras 10 plazas</h2>
   <p style="margin:4px 0"><span class="old">Precio normal: 1.900€ + 500€/mes</span></p>
   <h1 style="margin:6px 0">900€ una vez + 300€/mes</h1>
-  <p style="margin:6px 0"><b>Solo 10 plazas de lanzamiento.</b> Después pasará a 1.900€ + 500€/mes sin excepción.</p>
-  <p style="font-size:13px;background:rgba(0,0,0,0.08);padding:10px;border-radius:10px;margin:10px 0">
-    * <i>El precio final puede ajustarse a medida según las necesidades, volumen de atención y servicios concretos de tu negocio. Háblanos y te hacemos tu presupuesto exacto sin compromiso.</i>
+  <p style="margin:6px 0"><b>Solo 10 plazas.</b> Después pasará a 1.900€ + 500€/mes sin excepción.</p>
+  <p style="font-size:13px;background:rgba(0,0,0,0.08);padding:9px;border-radius:10px;margin:8px 0">
+    * <i>El precio final puede ajustarse a medida según las necesidades, volumen y servicios concretos de tu negocio. Háblanos y te hacemos presupuesto exacto sin compromiso.</i>
   </p>
-  <a class="btn" href="https://wa.me/34603489654?text=Hola%20TSI,%20quiero%20reservar%20mi%20plaza%20de%20lanzamiento%20o%20pedir%20presupuesto%20a%20medida" style="background:#000;color:#D4AF37">Reservar mi plaza / Pedir presupuesto</a>
+  <a class="btn" href="https://wa.me/34603489654?text=Hola%20TSI,%20quiero%20reservar%20mi%20plaza%20o%20pedir%20presupuesto%20a%20medida" style="background:#000;color:#D4AF37">Reservar mi plaza / Pedir presupuesto</a>
 </div>
 
 <div class="price2">
-  <h2>Precio estándar tras las 10 plazas</h2>
+  <h2>Precio estándar después</h2>
   <h2 style="color:#fff">1.900€ una vez + 500€/mes</h2>
-  <p class="small">Incluye: Socio IA personalizado con el nombre de tu negocio, conexión WhatsApp + Instagram, sistema de reservas y CRM, demo previa antes de pagar y soporte continuo.<br>* Presupuesto final adaptable según las necesidades de tu negocio.</p>
+  <p class="small">Incluye: Socio IA personalizado, conexión WhatsApp + Instagram, reservas y CRM, demo previa y soporte. * Presupuesto adaptable según tus necesidades.</p>
 </div>
 
 <div class="card">
   <h2>Pago fácil con Bizum o Tarjeta</h2>
-  <p><b>A) BIZUM (Recomendado - Activación más rápida)</b></p>
-  <div style="background:#0f0f0f;padding:12px;border-radius:10px;border:1px solid #333">
-    Haz Bizum al <b>603 489 654</b> con el concepto: <b>SOCIO + Nombre de tu negocio</b>. Después envíanos la captura por WhatsApp y activamos tu Socio IA en 24h.
+  <div style="background:#0f0f0f;padding:11px;border-radius:10px;border:1px solid #333">
+    <b>A) BIZUM (Recomendado):</b> Haz Bizum al <b>603 489 654</b> (Concepto: <b>SOCIO + Tu negocio</b>) y manda la captura por WhatsApp para activarlo en 24h.
   </div>
-  <div style="margin-top:8px">
-    <button onclick="copiarTexto('603489654', this)">📋 Copiar número Bizum (603 489 654)</button>
-  </div>
-  <a class="btn-green" href="https://wa.me/34603489654?text=Hola%20TSI,%20he%20hecho%20el%20Bizum%20para%20activar%20mi%20Socio%20IA">He hecho el Bizum - Enviar captura por WhatsApp</a>
-  <p style="margin-top:14px"><b>B) TARJETA</b><br><span class="small">¿Prefieres pagar con tarjeta o factura? Pídenos el enlace de pago seguro por WhatsApp.</span></p>
-  <a class="btn btn-dark" href="https://wa.me/34603489654?text=Hola%20TSI,%20quiero%20pagar%20con%20tarjeta%20mi%20Socio%20IA">💳 Solicitar enlace de pago con tarjeta</a>
-  <p class="small" style="margin-top:8px">El mantenimiento mensual (300€/mes) también puedes abonarlo por Bizum o tarjeta cada mes.</p>
+  <button onclick="copiar('603489654',this)">📋 Copiar Bizum (603 489 654)</button>
+  <a class="btn-green" href="https://wa.me/34603489654?text=Hola%20TSI,%20he%20hecho%20el%20Bizum%20para%20mi%20Socio%20IA">He hecho el Bizum - Enviar captura</a>
+  <p style="margin:12px 0 4px"><b>B) TARJETA:</b> Pídenos el enlace de pago seguro por WhatsApp.</p>
+  <a class="btn btn-dark" href="https://wa.me/34603489654?text=Hola%20TSI,%20quiero%20pagar%20con%20tarjeta">💳 Solicitar enlace con tarjeta</a>
 </div>
 
 <div class="card" id="crear" style="border-color:#D4AF37">
-  <span class="badge">PRUÉBALO AHORA GRATIS</span>
+  <span class="badge">PRUÉBALO GRATIS</span>
   <h2 style="margin-top:8px">1. Crea y personaliza tu Socio IA</h2>
-  <p class="small">Configura tu negocio en 10 segundos y prueba abajo cómo atiende, agenda citas hasta a 2 meses vista y guarda clientes en el CRM.</p>
-
-  <label class="small">Atajos rápidos de ejemplo:</label>
   <div>
-    <button class="btn-sm" onclick="cargarPreset('barberia','NOVA Barber Shop','Barberà del Vallès')">💈 Barbería</button>
-    <button class="btn-sm" onclick="cargarPreset('tatuaje','Barcelona Ink','Barcelona')">🎨 Tatuajes</button>
-    <button class="btn-sm" onclick="cargarPreset('dental','Clínica Sonrisa','Madrid')">🦷 Clínica Dental</button>
-    <button class="btn-sm" onclick="cargarPreset('gimnasio','FitClub Centro','Valencia')">🏋️ Gimnasio</button>
+    <button class="btn-sm" onclick="preset('barberia','NOVA Barber Shop','Barberà del Vallès')">💈 Barbería</button>
+    <button class="btn-sm" onclick="preset('tatuaje','Barcelona Ink','Barcelona')">🎨 Tatuajes</button>
+    <button class="btn-sm" onclick="preset('dental','Clínica Sonrisa','Madrid')">🦷 Dental</button>
+    <button class="btn-sm" onclick="preset('gimnasio','FitClub Centro','Valencia')">🏋️ Gimnasio</button>
   </div>
-
-  <div class="grid2" style="margin-top:8px">
-    <div>
-      <label class="small">Nombre de tu negocio</label>
-      <input id="inpNombreNeg" placeholder="Ej: Barbería El Corte, Estudio Aura...">
-    </div>
-    <div>
-      <label class="small">Ciudad</label>
-      <input id="inpCiudadNeg" placeholder="Ej: Barcelona, Madrid, Valencia...">
-    </div>
+  <div class="grid2" style="margin-top:6px">
+    <input id="inpNom" placeholder="Nombre de tu negocio">
+    <input id="inpCiu" placeholder="Ciudad">
   </div>
-
-  <label class="small">Tipo de negocio / Sector</label>
-  <select id="selNicho" onchange="toggleOtroNicho()">
+  <select id="selNicho" onchange="toggleOtro()">
     <option value="barberia">Barbería / Peluquería</option>
     <option value="tatuaje">Estudio de Tatuajes / Piercing</option>
     <option value="dental">Clínica Dental</option>
@@ -166,80 +135,305 @@ td,th{padding:8px 6px;border-bottom:1px solid #2e2e2e;text-align:left}
     <option value="taller">Taller Mecánico / Servicios</option>
     <option value="otro">Otro negocio (especificar)</option>
   </select>
-
-  <div id="boxOtroNicho" style="display:none">
-    <label class="small">Especifica exactamente qué negocio es:</label>
-    <input id="inpOtroNicho" placeholder="Ej: Inmobiliaria, Academia de idiomas, Fisioterapia, Veterinaria...">
-  </div>
-
-  <label class="small">Servicio principal y precio orientativo (opcional)</label>
-  <input id="inpServicioCustom" placeholder="Ej: Corte + degradado 18€ / Revisión gratis / Sesión 45€">
-
-  <button onclick="crearMiSocio()">✨ Activar mi Socio Demo y Generar Link</button>
-
+  <div id="boxOtro" style="display:none"><input id="inpOtro" placeholder="Especifica qué negocio es (ej: inmobiliaria, fisio, academia...)"></div>
+  <input id="inpSrv" placeholder="Servicio estrella y precio (opcional)">
+  <button onclick="crearSocio()">✨ Activar Demo y Generar Link</button>
   <div id="linkBox" class="link-box">
-    <p style="margin:0 0 6px"><b>✅ Socio Demo listo para compartir:</b></p>
-    <input id="linkGenerado" readonly onclick="this.select()" style="font-size:13px;color:#D4AF37">
-    <div>
-      <button class="btn-sm" onclick="copiarLinkDemo(this)">📋 Copiar link</button>
-      <a id="btnCompartirWA" class="btn btn-sm" style="background:#25D366;color:#fff" target="_blank" href="#">📲 Enviar por WhatsApp</a>
-    </div>
-    <p class="small" style="margin:6px 0 0">Quien abra este enlace verá la demo ya configurada con los datos de este negocio.</p>
+    <b>✅ Link de tu demo listo:</b>
+    <input id="linkGen" readonly onclick="this.select()" style="font-size:13px;color:#D4AF37">
+    <button class="btn-sm" onclick="copLink(this)">📋 Copiar link</button>
+    <a id="btnWA" class="btn btn-sm" style="background:#25D366;color:#fff" target="_blank" href="#">📲 Enviar por WhatsApp</a>
   </div>
 </div>
 
 <div class="card" id="demo">
-  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <h2 style="margin:0">🤖 Demo en vivo - <span id="negActivoTitulo">NOVA Barber Shop</span></h2>
-    <button class="btn-sm btn-dark" onclick="resetearDemo()">🔄 Reiniciar datos demo</button>
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px">
+    <h2 style="margin:0">🤖 Demo - <span id="negTit">NOVA Barber Shop</span></h2>
+    <button class="btn-sm btn-dark" onclick="resetDemo()">🔄 Reiniciar demo</button>
   </div>
-  <p class="small" id="negActivoSub">Sector: Barbería / Peluquería · Demo de ejemplo con catálogo cargado</p>
+  <p class="small" id="negSub"></p>
 
   <h3>2. Chat del Agente IA</h3>
   <div id="chat"></div>
   <div style="display:flex;gap:6px;margin-top:6px">
-    <input id="chatInp" placeholder="Escribe como cliente... Ej: Hola, precios, quiero cita">
-    <button onclick="enviarChat()" style="min-width:52px">➤</button>
+    <input id="chatInp" placeholder="Escribe... Ej: Hola, precios, cita">
+    <button onclick="enviar()" style="min-width:50px">➤</button>
   </div>
   <div style="margin-top:6px">
-    <button class="btn-sm" onclick="rapido('Hola')">Hola</button>
-    <button class="btn-sm" onclick="rapido('¿Qué precios tenéis?')">Precios</button>
-    <button class="btn-sm" onclick="rapido('Quiero pedir cita')">Pedir cita</button>
-    <button class="btn-sm" onclick="rapido('¿Qué horario tenéis?')">Horario</button>
-    <button class="btn-sm btn-dark" onclick="verAprendido()">📚 Ver lo que ha aprendido</button>
+    <button class="btn-sm" onclick="rap('Hola')">Hola</button>
+    <button class="btn-sm" onclick="rap('¿Qué precios tenéis?')">Precios</button>
+    <button class="btn-sm" onclick="rap('Quiero cita')">Pedir cita</button>
+    <button class="btn-sm" onclick="rap('Horario')">Horario</button>
+    <button class="btn-sm btn-dark" onclick="verApr()">📚 Lo aprendido</button>
   </div>
-  <p class="small" style="margin:6px 0 0">Esta demo aprende de cada conversación y guarda tus pruebas en este dispositivo.</p>
-  <div id="aprendido" class="small" style="margin-top:8px"></div>
+  <p class="small" style="margin:5px 0 0">Esta demo aprende de cada conversación.</p>
+  <div id="apr" class="small" style="margin-top:6px"></div>
 
-  <hr style="border-color:#2c2c2c;margin:18px 0">
-
-  <h3>3. Calendario inteligente (Agenda hasta 2 meses vista)</h3>
-  <p class="small">Citas de <b id="calTitulo">NOVA Barber Shop</b>. Elige cualquier día de los próximos 60 días y una hora libre. No permite reservar dos veces el mismo hueco.</p>
-
+  <hr style="border-color:#2c2c2c;margin:16px 0">
+  <h3>3. Calendario (Agenda hasta 60 días)</h3>
+  <p class="small">Citas de <b id="calTit">NOVA Barber Shop</b>. No deja repetir día y hora.</p>
   <div class="grid2" style="align-items:end">
-    <div>
-      <label class="small">Elegir fecha en el calendario (hasta 60 días):</label>
-      <input type="date" id="calFechaInput" onchange="seleccionarFecha(this.value)">
-    </div>
-    <div>
-      <label class="small">Fecha seleccionada:</label>
-      <div id="calFechaLabel" style="padding:11px;background:#101010;border:1px solid #333;border-radius:10px;font-weight:700;color:#D4AF37"></div>
-    </div>
+    <div><label class="small">Elegir fecha (hasta 2 meses):</label><input type="date" id="calF" onchange="selFecha(this.value)"></div>
+    <div id="calLbl" style="padding:10px;background:#101010;border:1px solid #333;border-radius:9px;font-weight:700;color:#D4AF37"></div>
   </div>
-
-  <div id="calQuickDays" class="cal-days"></div>
+  <div id="calDays" class="cal-days"></div>
   <div id="calSlots" class="slots-grid"></div>
-
-  <div id="bookingBox" class="booking-box">
-    <p style="margin:0 0 8px"><b style="color:#D4AF37">Confirmar cita para el <span id="bkFechaHora"></span></b></p>
-    <div class="grid2">
-      <input id="bkNombre" placeholder="Tu nombre completo *">
-      <input id="bkTel" type="tel" placeholder="Tu WhatsApp / Teléfono *">
-    </div>
-    <select id="bkServicio"></select>
-    <div>
-      <button onclick="confirmarReservaCal()">✅ Confirmar Cita</button>
-      <button class="btn-dark" onclick="cancelarSeleccionHueco()">Cancelar</button>
-    </div>
+  <div id="bkBox" class="booking-box">
+    <p style="margin:0 0 6px"><b style="color:#D4AF37">Confirmar cita: <span id="bkFH"></span></b></p>
+    <div class="grid2"><input id="bkNom" placeholder="Tu nombre *"><input id="bkTel" type="tel" placeholder="Tu WhatsApp *"></div>
+    <select id="bkSrv"></select>
+    <button onclick="confBk()">✅ Confirmar Cita</button>
+    <button class="btn-dark" onclick="cancelBk()">Cancelar</button>
   </div>
-  <p id="calMsg" class="small" style
+  <p id="calMsg" class="small" style="color:#2ecc71;font-weight:700;margin-top:8px"></p>
+
+  <hr style="border-color:#2c2c2c;margin:16px 0">
+  <h3>4. CRM / Mis Clientes</h3>
+  <p class="small">Tienes <b id="cnt" style="color:#D4AF37">0 clientes</b>.</p>
+  <div class="table-wrap"><table><thead><tr><th>Nombre</th><th>WhatsApp</th><th>Servicio</th><th>Fecha</th><th>Estado</th></tr></thead><tbody id="crmBody"></tbody></table></div>
+
+  <hr style="border-color:#2c2c2c;margin:16px 0">
+  <h3>5. Recordatorios</h3>
+  <div id="recs"></div>
+</div>
+
+<div class="card" id="ejemplos">
+  <h2>Ejemplos de web + reserva para tus clientes</h2>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showEj('barber',this)">💈 Barbería</button>
+    <button class="tab-btn" onclick="showEj('tattoo',this)">🎨 Tatuaje</button>
+    <button class="tab-btn" onclick="showEj('dental',this)">🦷 Dental</button>
+  </div>
+  <div id="ejBox"></div>
+</div>
+
+<div class="card">
+  <h2>QR para tu negocio (Placas físicas)</h2>
+  <div class="qrbox">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/34603489654?text=Hola%20TSI%20quiero%20info" alt="QR TSI">
+    <p style="margin:6px 0 0"><b>TU SOCIO IA - TSI</b> · 603 489 654</p>
+  </div>
+  <a class="btn-green" href="https://wa.me/34603489654?text=Hola%20TSI,%20quiero%20mi%20placa%20con%20QR">QUIERO MI PLACA CON QR</a>
+</div>
+
+<div class="card">
+  <h2>Dónde estamos y horario</h2>
+  <p style="margin:0">📍 Barberà del Vallès, Barcelona (Toda España)<br>🕒 <b>Atención IA: 24/7 · 365 días</b><br>📱 603 489 654 | 📧 tusocioia.tsi@gmail.com</p>
+</div>
+
+<div class="card">
+  <h2>FAQ</h2>
+  <p style="margin:0"><b>¿Cambio mi número?</b> No, se conecta al tuyo.<br><b>¿Contesta de noche?</b> Sí, 24/7 los 365 días.<br><b>¿Veo las conversaciones?</b> Sí, quedan guardadas.<br><b>¿Puedo probarlo?</b> Arriba en la demo gratis.</p>
+</div>
+
+<div class="card" id="hablamos">
+  <h2>¿Hablamos?</h2>
+  <button onclick="document.getElementById('cTSI').style.display='block'">Abrir chat ¿Hablamos?</button>
+  <div id="cTSI" style="display:none;background:#0e0e0e;padding:12px;border-radius:11px;margin-top:10px;border:1px solid #333">
+    <p id="tsiM">Hola, soy tu Socio IA TSI. ¿Tienes un negocio donde pierdes clientes por no contestar al instante? Te ayudo a automatizar citas y ventas 24/7.</p>
+    <button class="btn-sm" onclick="rTSI('i')">Cómo funciona</button>
+    <button class="btn-sm" onclick="rTSI('p')">Precios</button>
+    <button class="btn-sm" onclick="rTSI('d')">Quiero demo</button>
+    <a class="btn-green" href="https://wa.me/34603489654?text=Hola,%20quiero%20mi%20Socio%20IA%20TSI">Hablar por WhatsApp</a>
+  </div>
+</div>
+
+<div class="center small" style="padding:14px 0">Tu Socio IA TSI · tusocioia.tsi@gmail.com · 603 489 654</div>
+</div>
+<a class="wa-float" href="https://wa.me/34603489654?text=Hola,%20quiero%20mi%20Socio%20IA%20TSI">💬</a>
+
+<script>
+const SK="tsi_demo_v1", HRS=["10:00","11:00","12:00","13:00","16:00","17:00","18:00","19:00","20:00"];
+const PRE={
+  barberia:{tipo:"Barbería / Peluquería",nom:"NOVA Barber Shop",ciu:"Barberà del Vallès",srv:[{n:"Corte + Degradado",p:"18€"},{n:"Corte + Barba",p:"24€"},{n:"Afeitado navaja",p:"15€"}],faq:"Cita previa sin esperas. Efectivo, tarjeta y Bizum."},
+  tatuaje:{tipo:"Estudio de Tatuajes",nom:"Barcelona Ink",ciu:"Barcelona",srv:[{n:"Valoración gratis",p:"0€"},{n:"Tatuaje pequeño",p:"Desde 60€"},{n:"Tatuaje mediano",p:"Desde 130€"}],faq:"Presupuesto exacto tras ver tamaño y zona."},
+  dental:{tipo:"Clínica Dental",nom:"Clínica Sonrisa",ciu:"Madrid",srv:[{n:"Primera visita",p:"Gratis"},{n:"Limpieza dental",p:"49€"},{n:"Blanqueamiento",p:"149€"}],faq:"Primera revisión gratuita."},
+  estetica:{tipo:"Centro de Estética",nom:"Estética Aura",ciu:"Barcelona",srv:[{n:"Limpieza facial",p:"45€"},{n:"Lifting pestañas",p:"35€"}],faq:"Valoración gratuita."},
+  gimnasio:{tipo:"Gimnasio",nom:"FitClub Centro",ciu:"Valencia",srv:[{n:"Pase prueba 1 día",p:"Gratis"},{n:"Cuota mensual",p:"39€/mes"}],faq:"Sin permanencia."},
+  restaurante:{tipo:"Restaurante",nom:"La Brasa TSI",ciu:"Barcelona",srv:[{n:"Reserva mesa",p:"Gratis"},{n:"Menú degustación",p:"32€"}],faq:"Opciones sin gluten."},
+  taller:{tipo:"Taller",nom:"Motor Express",ciu:"Madrid",srv:[{n:"Pre-ITV",p:"35€"},{n:"Aceite y filtros",p:"Desde 69€"}],faq:"Presupuesto cerrado."}
+};
+const esc=s=>String(s||"").replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const hoy=(o=0)=>{const d=new Date();d.setDate(d.getDate()+o);return d.toISOString().split("T")[0];};
+const fmt=iso=>{const d=new Date(iso+"T12:00:00"),ds=["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"],ms=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];return `${ds[d.getDay()]} ${d.getDate()} ${ms[d.getMonth()]}`;};
+const enc=o=>{const b=new TextEncoder().encode(JSON.stringify(o));let s="";b.forEach(x=>s+=String.fromCharCode(x));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');};
+const dec=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';const b=atob(s),a=Uint8Array.from(b,c=>c.charCodeAt(0));return JSON.parse(new TextDecoder().decode(a));};
+
+function defState(){
+  const oc={};oc[hoy(0)]=["11:00","17:00"];oc[hoy(1)]=["10:00","18:00"];
+  return {
+    cfg:{k:"barberia",tipo:PRE.barberia.tipo,nom:PRE.barberia.nom,ciu:PRE.barberia.ciu,srv:PRE.barberia.srv,faq:PRE.barberia.faq},
+    oc,
+    cli:[{id:1,n:"Marc Rodríguez",t:"644 128 390",q:"Corte + Degradado",f:hoy(1)+" 10:00",e:"cita agendada"}],
+    rec:[{id:101,tp:"cita",tx:"Cita con Marc Rodríguez (Tel: 644 128 390) - Corte + Degradado",f:hoy(1)+" 10:00",h:false}],
+    apr:{}
+  };
+}
+let st=(()=>{try{const r=localStorage.getItem(SK);return r?JSON.parse(r):defState();}catch(e){return defState();}})();
+const save=()=>{try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){}};
+let fAct=hoy(0), hSel=null, espChat=null;
+
+function toggleOtro(){document.getElementById("boxOtro").style.display=document.getElementById("selNicho").value==="otro"?"block":"none";}
+function preset(k,n,c){
+  document.getElementById("selNicho").value=k;toggleOtro();
+  document.getElementById("inpNom").value=n;document.getElementById("inpCiu").value=c;document.getElementById("inpSrv").value="";
+  aplicar(k,PRE[k].tipo,n,c,PRE[k].srv,PRE[k].faq,true);
+  document.getElementById("demo").scrollIntoView({behavior:"smooth"});
+}
+function crearSocio(){
+  const k=document.getElementById("selNicho").value, ot=document.getElementById("inpOtro").value.trim();
+  if(k==="otro"&&!ot){alert("Especifica qué negocio es.");return;}
+  const n=document.getElementById("inpNom").value.trim()||(k==="otro"?ot:PRE[k].nom);
+  const c=document.getElementById("inpCiu").value.trim()||"España";
+  const sv=document.getElementById("inpSrv").value.trim();
+  const tp=k==="otro"?ot:PRE[k].tipo;
+  let srvs=(k!=="otro"&&PRE[k])?[...PRE[k].srv]:[{n:`Valoración (${tp})`,p:"Gratis"},{n:`Servicio ${tp}`,p:"Consultar"}];
+  if(sv) srvs=[{n:sv,p:"Incluido"},...srvs.slice(0,2)];
+  const fq=(k!=="otro"&&PRE[k])?PRE[k].faq:`Atención 24/7 en ${n} (${c}).`;
+  aplicar(k,tp,n,c,srvs,fq,true);
+  const u=location.origin+location.pathname+"?demo="+enc({n,t:tp,c,s:sv,k});
+  document.getElementById("linkGen").value=u;
+  document.getElementById("btnWA").href="https://wa.me/?text="+encodeURIComponent("Demo de Socio IA TSI para "+n+": "+u);
+  document.getElementById("linkBox").style.display="block";
+}
+function aplicar(k,tipo,nom,ciu,srv,faq,clr){
+  st.cfg={k,tipo,nom,ciu,srv,faq};save();
+  document.getElementById("negTit").textContent=nom;
+  document.getElementById("negSub").textContent=`Sector: ${tipo} · ${ciu} · 24/7`;
+  document.getElementById("calTit").textContent=nom;
+  document.getElementById("bkSrv").innerHTML=srv.map(s=>`<option value="${esc(s.n)} (${esc(s.p)})">${esc(s.n)} — ${esc(s.p)}</option>`).join("");
+  if(clr){
+    document.getElementById("chat").innerHTML="";espChat=null;
+    addIA(`¡Hola! Soy el Socio IA de <b>${esc(nom)}</b> (${esc(tipo)} en ${esc(ciu)}). ¿Consultas precios o quieres cita?`);
+  }
+}
+function addIA(h){const c=document.getElementById("chat");c.innerHTML+=`<div class="msg ia">${h}</div>`;c.scrollTop=c.scrollHeight;}
+function addYo(t){const c=document.getElementById("chat");c.innerHTML+=`<div class="msg yo">${esc(t)}</div>`;c.scrollTop=c.scrollHeight;}
+function rap(t){document.getElementById("chatInp").value=t;enviar();}
+function enviar(){const i=document.getElementById("chatInp"),t=i.value.trim();if(!t)return;addYo(t);i.value="";setTimeout(()=>procChat(t),300);}
+
+function procChat(txt){
+  const l=txt.toLowerCase(), c=st.cfg;
+  st.apr[l]=st.apr[l]?{p:txt,v:st.apr[l].v+1}:{p:txt,v:1};save();
+  const mt=txt.match(/(\+?\d[\d\s\-]{7,14}\d)/);
+  if(espChat&&mt){
+    const tel=mt[1].trim(), nom=txt.replace(mt[1],"").replace(/me llamo|soy|tel|whatsapp|,|:/gi,"").trim()||"Contacto chat";
+    addCli(nom,tel,espChat,hoy(0),"pidió info","llamar");espChat=null;
+    addIA(`¡Listo <b>${esc(nom)}</b>! Guardado tu WhatsApp (<b>${esc(tel)}</b>) en el CRM de ${esc(c.nom)}.`);return;
+  }
+  if(l.includes("hola")||l.includes("buenas")){
+    addIA(`¡Hola! En <b>${esc(c.nom)}</b> te ayudamos 24/7:<br>${c.srv.map(s=>`• ${esc(s.n)}: <b>${esc(s.p)}</b>`).join("<br>")}<br>¿Quieres cita o más info?`);return;
+  }
+  if(l.includes("precio")||l.includes("cuesta")||l.includes("cuanto")||l.includes("servicio")){
+    addIA(`Tarifas en <b>${esc(c.nom)}</b>:<br>${c.srv.map(s=>`• ${esc(s.n)}: <b>${esc(s.p)}</b>`).join("<br>")}<br><span class="small">${esc(c.faq)}</span>`);return;
+  }
+  if(l.includes("horario")||l.includes("abierto")){
+    addIA(`Este agente de <b>${esc(c.nom)}</b> atiende <b>24/7 los 365 días</b>. Mira los huecos abajo en el Calendario.`);return;
+  }
+  if(l.includes("cita")||l.includes("reserv")||l.includes("hueco")){
+    const lib=HRS.filter(h=>!(st.oc[fAct]||[]).includes(h));
+    addIA(`Agenda abierta 60 días. Para el <b>${fmt(fAct)}</b> hay libre: <b>${lib.slice(0,4).join(", ")||"completo"}</b>. Pulsa una hora verde abajo para reservar.`);return;
+  }
+  espChat=txt;
+  addIA(`Eso lo confirma el equipo de <b>${esc(c.nom)}</b>. Dime tu <b>nombre y WhatsApp</b> (ej: <i>Carlos 611222333</i>) para dejarte el aviso o habla con TSI:`);
+  addIA(`<a class="btn btn-sm" style="background:#25D366;color:#fff" target="_blank" href="https://wa.me/34603489654?text=${encodeURIComponent('Consulta sobre '+c.nom+': '+txt)}">💬 Hablar con TSI</a>`);
+}
+function verApr(){
+  const ks=Object.keys(st.apr);
+  document.getElementById("apr").innerHTML=ks.length?ks.map(k=>`• "${esc(st.apr[k].p)}" (${st.apr[k].v}x)`).join("<br>"):"Aún no hay preguntas.";
+}
+
+function initCal(){
+  const inp=document.getElementById("calF");inp.min=hoy(0);inp.max=hoy(60);inp.value=fAct;
+  let q="";for(let i=0;i<7;i++){const d=hoy(i);q+=`<button class="day-btn ${d===fAct?'active':''}" onclick="selFecha('${d}')">${i===0?'Hoy · ':''}${fmt(d)}</button>`;}
+  document.getElementById("calDays").innerHTML=q;
+  document.getElementById("calLbl").textContent=fmt(fAct)+" ("+fAct+")";
+  renderSlots();
+}
+function selFecha(d){if(!d)return;fAct=d;hSel=null;document.getElementById("bkBox").style.display="none";initCal();}
+function renderSlots(){
+  const oc=st.oc[fAct]||[];
+  document.getElementById("calSlots").innerHTML=HRS.map(h=>{
+    const o=oc.includes(h), s=hSel===h;
+    return `<button class="slot ${o?'ocupado':'libre'} ${s?'selected':''}" ${o?'disabled':''} onclick="pickHora('${h}')">${h}<br><span style="font-size:11px;font-weight:400">${o?'Ocupado':'Libre'}</span></button>`;
+  }).join("");
+}
+function pickHora(h){hSel=h;renderSlots();document.getElementById("bkFH").textContent=fmt(fAct)+" a las "+h;document.getElementById("bkBox").style.display="block";document.getElementById("calMsg").textContent="";}
+function cancelBk(){hSel=null;document.getElementById("bkBox").style.display="none";renderSlots();}
+function confBk(){
+  const n=document.getElementById("bkNom").value.trim(), t=document.getElementById("bkTel").value.trim(), s=document.getElementById("bkSrv").value;
+  if(!n||!t){alert("Pon nombre y WhatsApp.");return;}
+  const hr=hSel;
+  if(reservarFH(fAct,hr,n,t,s)){
+    document.getElementById("bkNom").value="";document.getElementById("bkTel").value="";
+    document.getElementById("bkBox").style.display="none";hSel=null;
+    document.getElementById("calMsg").textContent=`✅ Cita reservada para ${n} (${t}) el ${fmt(fAct)} a las ${hr}.`;
+    addIA(`¡Cita confirmada! <b>${esc(n)}</b> (${esc(t)}) el <b>${fmt(fAct)}</b> a las <b>${hr}</b>.`);
+  }
+}
+function reservarFH(iso,h,n,t,s){
+  if(!st.oc[iso])st.oc[iso]=[];
+  if(st.oc[iso].includes(h)){alert("Hueco ocupado, elige otro.");return false;}
+  st.oc[iso].push(h);
+  addCli(n,t,s,iso+" "+h,"cita agendada","cita");
+  if(iso===fAct)renderSlots();
+  return true;
+}
+function addCli(n,t,q,f,e,tp){
+  const id=Date.now();
+  st.cli.unshift({id,n,t,q,f,e});
+  st.rec.unshift({id:id+1,tp,tx:(tp==="cita"?`Cita con ${n}`:`Llamar a ${n}`)+` (Tel: ${t}) - ${q}`,f,h:false});
+  save();renderCRM();renderRec();
+}
+function renderCRM(){
+  document.getElementById("cnt").textContent=st.cli.length+" clientes";
+  const es=["pidió info","presupuesto enviado","cita agendada","venta cerrada"];
+  document.getElementById("crmBody").innerHTML=st.cli.map((c,i)=>`<tr><td><b>${esc(c.n)}</b></td><td><a href="https://wa.me/34${esc(c.t).replace(/\D/g,'')}" target="_blank" style="color:#25D366">${esc(c.t)}</a></td><td>${esc(c.q)}</td><td>${esc(c.f)}</td><td><select onchange="chgCRM(${i},this.value)" style="margin:0;padding:4px;font-size:12px">${es.map(x=>`<option ${c.e===x?'selected':''}>${x}</option>`).join("")}</select></td></tr>`).join("");
+}
+function chgCRM(i,v){st.cli[i].e=v;save();}
+function renderRec(){
+  const a=st.rec.filter(r=>!r.h);
+  document.getElementById("recs").innerHTML=a.length?a.map(r=>`<div class="rem-item"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><div><b>${r.tp==='cita'?'📅 CITA':'📞 LLAMAR'}</b> · <span class="small">${esc(r.f)}</span><br>${esc(r.tx)}</div><button class="btn-sm" onclick="hechoRec(${r.id})">✅ Hecho</button></div></div>`).join(""):`<p class="small">✅ Sin tareas pendientes.</p>`;
+}
+function hechoRec(id){const r=st.rec.find(x=>x.id===id);if(r)r.h=true;save();renderRec();}
+function resetDemo(){localStorage.removeItem(SK);st=defState();save();aplicar(st.cfg.k,st.cfg.tipo,st.cfg.nom,st.cfg.ciu,st.cfg.srv,st.cfg.faq,true);initCal();renderCRM();renderRec();}
+
+const EJS={
+  barber:{b:"BARBERÍA",t:"NOVA BARBER SHOP - Barberà",d:"Corte, degradado y barba en 30 segundos.",f:["https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500","https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500"],s:[{n:"Corte + Degradado",p:"18€"},{n:"Corte + Barba",p:"24€"}],o:['⭐⭐⭐⭐⭐ <b>Marc R.</b> — "Reservé de noche sin llamar."'],qr:"Hola NOVA quiero cita"},
+  tattoo:{b:"TATUAJE",t:"BARCELONA INK - Barcelona",d:"Estudio de tatuaje. Valoración gratis.",f:["https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=500","https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=500"],s:[{n:"Valoración presencial",p:"Gratis"},{n:"Tatuaje pequeño",p:"Desde 60€"}],o:['⭐⭐⭐⭐⭐ <b>Lucía G.</b> — "Me valoraron el mismo día."'],qr:"Hola Barcelona Ink quiero valorar"},
+  dental:{b:"CLÍNICA DENTAL",t:"SONRISA CLÍNICA - Madrid",d:"Primera revisión gratuita.",f:["https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500","https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=500"],s:[{n:"Primera visita",p:"0€"},{n:"Limpieza completa",p:"49€"}],o:['⭐⭐⭐⭐⭐ <b>Carmen L.</b> — "Cita en 2 minutos."'],qr:"Hola Sonrisa quiero cita"}
+};
+function showEj(k,btn){
+  if(btn){document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");}
+  const e=EJS[k];
+  document.getElementById("ejBox").innerHTML=`<div class="card-w" style="margin:0"><span class="badge">${e.b}</span><h2 style="color:#000;margin-top:6px">${e.t}</h2><p style="margin:4px 0">${e.d}</p><div class="grid-img"><img class="foto" src="${e.f[0]}"><img class="foto" src="${e.f[1]}"></div>${e.s.map(x=>`<div class="service-w"><span><b>${x.n}</b> · ${x.p}</span><button class="btn-sm" onclick="document.getElementById('ejS').value='${esc(x.n)} (${esc(x.p)})';document.getElementById('ejN').focus()">ELEGIR</button></div>`).join("")}<div class="grid2"><input id="ejN" placeholder="Tu nombre *"><input id="ejT" type="tel" placeholder="Tu WhatsApp *"></div><div class="grid2"><input id="ejF" type="date" min="${hoy(0)}" max="${hoy(60)}" value="${hoy(0)}"><select id="ejH">${HRS.map(h=>`<option>${h}</option>`).join("")}</select></div><select id="ejS">${e.s.map(x=>`<option>${x.n} (${x.p})</option>`).join("")}</select><button onclick="resEj('${esc(e.t)}')">CONFIRMAR RESERVA</button><p id="ejM" style="font-weight:700;color:#1e8449;margin:6px 0"></p><div class="qrbox"><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent('https://wa.me/34603489654?text='+e.qr)}"><p style="margin:4px 0 0"><b>QR PARA PLACA</b> · ${e.t}</p></div>${e.o.map(x=>`<div class="opinion">${x}</div>`).join("")}</div>`;
+}
+function resEj(tit){
+  const n=document.getElementById("ejN").value.trim(), t=document.getElementById("ejT").value.trim(), f=document.getElementById("ejF").value, h=document.getElementById("ejH").value, s=document.getElementById("ejS").value;
+  if(!n||!t||!f){alert("Rellena nombre, WhatsApp y fecha.");return;}
+  if(reservarFH(f,h,n,t,`${s} [${tit}]`)){document.getElementById("ejM").textContent=`✅ Guardada para ${n} el ${fmt(f)} a las ${h}.`;document.getElementById("ejN").value="";document.getElementById("ejT").value="";}
+}
+function rTSI(t){
+  const m=document.getElementById("tsiM");
+  if(t==="i")m.innerHTML="Sirve para cualquier negocio: responde en 2 segundos 24/7 por WhatsApp e Instagram y agenda por ti.";
+  if(t==="p")m.innerHTML="Oferta lanzamiento 10 plazas: <b>900€ + 300€/mes</b> (después 1.900€ + 500€/mes), ajustable según necesidades.";
+  if(t==="d")m.innerHTML='Sube a <a href="#crear" style="color:#D4AF37">1. Crea tu Socio IA</a> y pruébalo gratis.';
+}
+function copiar(t,b){navigator.clipboard.writeText(t).then(()=>{const o=b.textContent;b.textContent="✅ Copiado";setTimeout(()=>b.textContent=o,1500);});}
+function copLink(b){copiar(document.getElementById("linkGen").value,b);}
+function checkURL(){
+  const tok=new URLSearchParams(location.search).get("demo");if(!tok)return;
+  try{
+    const d=dec(tok), k=(d.k&&PRE[d.k])?d.k:"otro";
+    let s=(k!=="otro"&&PRE[k])?[...PRE[k].srv]:[{n:`Valoración (${d.t})`,p:"Gratis"},{n:`Servicio ${d.t}`,p:"Consultar"}];
+    if(d.s)s=[{n:d.s,p:"Incluido"},...s];
+    aplicar(k,d.t,d.n,d.c,s,(k!=="otro"&&PRE[k])?PRE[k].faq:`Atención 24/7 para ${d.n}.`,true);
+    const b=document.getElementById("bannerCustom");b.textContent=`👑 Demo activa para: ${d.n} (${d.t} · ${d.c})`;b.style.display="block";
+  }catch(e){}
+}
+document.getElementById("chatInp").addEventListener("keydown",e=>{if(e.key==="Enter")enviar();});
+aplicar(st.cfg.k,st.cfg.tipo,st.cfg.nom,st.cfg.ciu,st.cfg.srv,st.cfg.faq,true);
+initCal();renderCRM();renderRec();showEj("barber");checkURL();
+</script>
+</body>
+</html>
