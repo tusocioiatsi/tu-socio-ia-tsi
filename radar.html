@@ -4,131 +4,360 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Radar Real TSI - Buscador Libre de Negocios</title>
+<title>Radar Real TSI</title>
 <style>
 *{box-sizing:border-box}
-body{font-family:system-ui,-apple-system,Arial,sans-serif;margin:0;background:#0A0A0A;color:#fff;padding:14px;padding-bottom:70px}
+body{font-family:system-ui,Arial,sans-serif;margin:0;background:#0A0A0A;color:#fff;padding:14px;padding-bottom:70px}
 .wrap{max-width:920px;margin:0 auto}
-h1{font-size:24px;color:#D4AF37;margin:6px 0}
-h2{font-size:18px;color:#D4AF37;margin:0 0 10px}
-.card{background:#161616;border:1px solid #2e2e2e;border-radius:14px;padding:16px;margin:12px 0}
-button,.btn{background:#D4AF37;border:0;padding:10px 14px;border-radius:9px;font-weight:700;margin:4px 3px;cursor:pointer;color:#000;text-decoration:none;display:inline-block;font-size:13px}
+h1{font-size:22px;color:#D4AF37;margin:6px 0}
+h2{font-size:17px;color:#D4AF37;margin:0 0 10px}
+.card{background:#161616;border:1px solid #2e2e2e;border-radius:14px;padding:15px;margin:12px 0}
+button,.btn{background:#D4AF37;border:0;padding:10px 13px;border-radius:9px;font-weight:700;margin:3px 2px;cursor:pointer;color:#000;text-decoration:none;display:inline-block;font-size:13px}
 .btn-dark{background:#262626;color:#fff;border:1px solid #444}
 .btn-green{background:#25D366;color:#fff}
 .btn-blue{background:#1f6feb;color:#fff}
 .btn-sm{padding:7px 10px;font-size:12px}
-input,select{width:100%;padding:11px;border-radius:9px;border:1px solid #3a3a3a;background:#0f0f0f;color:#fff;margin:5px 0;font-size:15px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.grid3{display:grid;grid-template-columns:2fr 2fr 1fr;gap:10px}
+input,select{width:100%;padding:10px;border-radius:9px;border:1px solid #3a3a3a;background:#0f0f0f;color:#fff;margin:5px 0;font-size:14px}
+.grid2,.grid3{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid3{grid-template-columns:2fr 2fr 1fr}
 @media(max-width:650px){.grid2,.grid3{grid-template-columns:1fr}}
 .small{font-size:12px;color:#aaa}
-.lead{background:#101010;border:1px solid #2d2d2d;border-radius:12px;padding:14px;margin:10px 0}
-.tag{background:#242424;color:#D4AF37;padding:3px 9px;border-radius:12px;font-size:12px;font-weight:700;display:inline-block;margin:2px 2px 0 0}
+.lead{background:#101010;border:1px solid #2d2d2d;border-radius:12px;padding:13px;margin:10px 0}
+.tag{background:#242424;color:#D4AF37;padding:3px 8px;border-radius:10px;font-size:11px;font-weight:700;display:inline-block;margin:2px 2px 0 0}
 .tag-ok{background:#14331f;color:#2ecc71}
 .tag-warn{background:#332611;color:#f39c12}
 .outbox{background:#090909;border:1px dashed #D4AF37;padding:10px;border-radius:10px;margin-top:8px;font-size:13px;white-space:pre-wrap;display:none}
-.tabs{display:flex;gap:8px;margin:10px 0;flex-wrap:wrap}
+.tabs{display:flex;gap:6px;margin:10px 0;flex-wrap:wrap}
 .status{padding:10px;border-radius:10px;background:#111;border:1px solid #333;margin-top:10px;font-size:13px;display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>📡 Radar Real TSI</h1>
-  <p class="small">Escribe libremente cualquier negocio y ciudad para localizar negocios reales en tiempo real.</p>
-
+  <p class="small">Busca negocios reales por sector y ciudad en tiempo real.</p>
   <div class="tabs">
-    <button id="tabBuscarBtn" onclick="verPestana('buscar')">🔍 Buscador libre en vivo</button>
-    <button id="tabGuardadosBtn" class="btn-dark" onclick="verPestana('guardados')">📋 Mi CRM de Prospección (<span id="countGuardados">0</span>)</button>
-    <button id="tabManualBtn" class="btn-dark" onclick="verPestana('manual')">➕ Añadir negocio manual</button>
+    <button id="tB" onclick="verTab('b')">🔍 Buscador en vivo</button>
+    <button id="tG" class="btn-dark" onclick="verTab('g')">📋 Mi CRM (<span id="cG">0</span>)</button>
+    <button id="tM" class="btn-dark" onclick="verTab('m')">➕ Añadir manual</button>
   </div>
 
-  <div id="secBuscar">
+  <div id="sB">
     <div class="card">
-      <h2>¿Qué negocios quieres buscar hoy?</h2>
+      <h2>Buscar negocios reales</h2>
       <div class="grid3">
-        <div>
-          <label class="small">Negocio o sector (escribe lo que quieras)</label>
-          <input id="inpNegocio" placeholder="Ej: dentista, reformas, tatuajes, bar... (vacío = todos)">
-        </div>
-        <div>
-          <label class="small">Ciudad, barrio o pueblo *</label>
-          <input id="inpCiudad" placeholder="Ej: Sabadell, Barberà del Vallès, Madrid...">
-        </div>
-        <div>
-          <label class="small">Radio</label>
-          <select id="selRadio">
-            <option value="2000">2 km</option>
-            <option value="4000" selected>4 km</option>
-            <option value="8000">8 km</option>
-            <option value="15000">15 km</option>
-          </select>
-        </div>
+        <input id="inpNeg" placeholder="Negocio: dentista, tatuajes, bar... (vacío = todos)">
+        <input id="inpCiu" placeholder="Ciudad o pueblo * (ej: Sabadell, Madrid)">
+        <select id="selRad">
+          <option value="2000">2 km</option>
+          <option value="4000" selected>4 km</option>
+          <option value="8000">8 km</option>
+          <option value="15000">15 km</option>
+        </select>
       </div>
-
       <div style="margin:6px 0">
-        <span class="small">Atajos rápidos: </span>
-        <button class="btn-sm btn-dark" onclick="ponerBusqueda('peluquería')">Peluquerías</button>
-        <button class="btn-sm btn-dark" onclick="ponerBusqueda('tatuajes')">Tatuajes</button>
-        <button class="btn-sm btn-dark" onclick="ponerBusqueda('dentista')">Dentistas</button>
-        <button class="btn-sm btn-dark" onclick="ponerBusqueda('estética')">Estética</button>
-        <button class="btn-sm btn-dark" onclick="ponerBusqueda('taller')">Talleres</button>
-        <button class="btn-sm btn-dark" onclick="ponerBusqueda('restaurante')">Restaurantes</button>
-        <button class="btn-sm btn-dark" onclick="ponerBusqueda('')">Todos los comercios</button>
+        <button class="btn-sm btn-dark" onclick="atajo('peluquería')">Peluquerías</button>
+        <button class="btn-sm btn-dark" onclick="atajo('tatuajes')">Tatuajes</button>
+        <button class="btn-sm btn-dark" onclick="atajo('dentista')">Dentistas</button>
+        <button class="btn-sm btn-dark" onclick="atajo('estética')">Estética</button>
+        <button class="btn-sm btn-dark" onclick="atajo('taller')">Talleres</button>
+        <button class="btn-sm btn-dark" onclick="atajo('restaurante')">Restaurantes</button>
+        <button class="btn-sm btn-dark" onclick="atajo('')">Todos</button>
       </div>
-
-      <div style="margin-top:8px">
-        <label style="margin-right:14px;display:inline-block"><input type="checkbox" id="chkEspana" style="width:auto" checked> Buscar en España</label>
-        <label style="margin-right:14px;display:inline-block"><input type="checkbox" id="chkSoloTel" style="width:auto"> Solo los que traen teléfono</label>
-        <label style="margin-right:14px;display:inline-block"><input type="checkbox" id="chkSinWeb" style="width:auto"> Solo los que NO tienen web</label>
-        <label style="display:inline-block"><input type="checkbox" id="chkOcultarCRM" style="width:auto" checked> Ocultar ya guardados en CRM</label>
+      <div style="margin:6px 0">
+        <label style="margin-right:12px"><input type="checkbox" id="cEs" style="width:auto" checked> España</label>
+        <label style="margin-right:12px"><input type="checkbox" id="cTel" style="width:auto"> Solo con tel</label>
+        <label style="margin-right:12px"><input type="checkbox" id="cWeb" style="width:auto"> Sin web</label>
+        <label><input type="checkbox" id="cCRM" style="width:auto" checked> Ocultar guardados</label>
       </div>
-
-      <div style="margin-top:10px">
-        <button id="btnBuscar" onclick="buscarReales()">📡 Buscar negocios reales</button>
-        <button class="btn-blue" onclick="abrirEnGoogleMaps()">🗺️ Abrir búsqueda en Google Maps</button>
-      </div>
-      <div id="statusBox" class="status"></div>
+      <button id="btnB" onclick="buscarReales()">📡 Buscar negocios reales</button>
+      <button class="btn-blue" onclick="abrirGM()">🗺️ Ver en Google Maps</button>
+      <div id="stBox" class="status"></div>
     </div>
-
-    <div id="resultadosReales"></div>
+    <div id="resBox"></div>
   </div>
 
-  <div id="secGuardados" style="display:none">
+  <div id="sG" style="display:none">
     <div class="card">
-      <h2>Mi CRM de Prospección (Guardado en este dispositivo)</h2>
+      <h2>Mi CRM de Prospección</h2>
       <div class="grid2">
-        <input id="fGuardadoTexto" placeholder="Filtrar guardados por nombre o ciudad..." oninput="renderGuardados()">
-        <select id="fGuardadoEstado" onchange="renderGuardados()">
+        <input id="fTxt" placeholder="Filtrar por nombre o ciudad..." oninput="renderCRM()">
+        <select id="fEst" onchange="renderCRM()">
           <option value="todos">Todos los estados</option>
-          <option value="Por contactar">Por contactar</option>
-          <option value="Ya contactado">Ya contactado</option>
-          <option value="Demo enviada">Demo enviada</option>
-          <option value="Ya es cliente">Ya es cliente</option>
-          <option value="Descartado">Descartado</option>
+          <option>Por contactar</option><option>Ya contactado</option>
+          <option>Demo enviada</option><option>Ya es cliente</option><option>Descartado</option>
         </select>
       </div>
     </div>
-    <div id="listaGuardados"></div>
+    <div id="gBox"></div>
   </div>
 
-  <div id="secManual" style="display:none">
+  <div id="sM" style="display:none">
     <div class="card">
-      <h2>➕ Guardar negocio encontrado en Google Maps / Instagram</h2>
+      <h2>➕ Añadir negocio manual</h2>
       <div class="grid2">
-        <input id="manN" placeholder="Nombre del negocio *">
-        <input id="manT" placeholder="Sector (ej: clínica, fontanero, bar...)">
+        <input id="mN" placeholder="Nombre *"><input id="mT" placeholder="Sector">
+        <input id="mC" placeholder="Ciudad *"><input id="mTel" placeholder="Teléfono / WhatsApp">
+        <input id="mDir" placeholder="Dirección"><input id="mWeb" placeholder="Web o Instagram">
       </div>
-      <div class="grid2">
-        <input id="manC" placeholder="Ciudad *">
-        <input id="manTel" placeholder="Teléfono / WhatsApp">
-      </div>
-      <div class="grid2">
-        <input id="manDir" placeholder="Dirección (opcional)">
-        <input id="manWeb" placeholder="Web o Instagram (opcional)">
-      </div>
-      <button onclick="guardarManual()">💾 Guardar en mi CRM</button>
+      <button onclick="guardarManual()">💾 Guardar en CRM</button>
     </div>
   </div>
+</div>
 
-  <p class="small" style="text-align:center;margin-top:20px">Datos cartográficos reales © Colaboradores de OpenStreetMap (ODbL).</p>
-</div
+<script>
+const K="tsi_radar_real_crm_v1";
+let res=[], crm=[];
+try{crm=JSON.parse(localStorage.getItem(K)||"[]");}catch(e){crm=[];}
+
+function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function encodeDemo(o){const b=new TextEncoder().encode(JSON.stringify(o));let s="";b.forEach(x=>s+=String.fromCharCode(x));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
+function saveCRM(){localStorage.setItem(K,JSON.stringify(crm));document.getElementById("cG").textContent=crm.length;}
+function setSt(m,err){const s=document.getElementById("stBox");s.style.display="block";s.style.color=err?"#ff6b6b":"#D4AF37";s.textContent=m;}
+
+function verTab(t){
+  ["b","g","m"].forEach(x=>{
+    document.getElementById("s"+x.toUpperCase()).style.display=t===x?"block":"none";
+    document.getElementById("t"+x.toUpperCase()).className=t===x?"":"btn-dark";
+  });
+  if(t==="g") renderCRM();
+}
+function atajo(v){document.getElementById("inpNeg").value=v;if(document.getElementById("inpCiu").value.trim())buscarReales();else document.getElementById("inpCiu").focus();}
+function abrirGM(){
+  const n=document.getElementById("inpNeg").value.trim()||"negocios", c=document.getElementById("inpCiu").value.trim();
+  if(!c){alert("Escribe una ciudad.");return;}
+  window.open("https://www.google.com/maps/search/"+encodeURIComponent(n+" en "+c),"_blank");
+}
+function fetchTO(u,ms){
+  const c=new AbortController(), t=setTimeout(()=>c.abort(),ms);
+  return fetch(u,{signal:c.signal}).finally(()=>clearTimeout(t));
+}
+
+async function localizar(ciu, es){
+  const q=es&&!ciu.toLowerCase().includes("españa")?ciu+", España":ciu;
+  try{
+    setSt("1/2 Localizando "+ciu+" (Nominatim)...");
+    const r=await fetchTO("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q="+encodeURIComponent(q),7000);
+    if(r.ok){const d=await r.json();if(d&&d.length)return{lat:+d[0].lat,lon:+d[0].lon,nom:d[0].display_name};}
+  }catch(e){}
+  try{
+    setSt("1/2 Localizando "+ciu+" (Photon)...");
+    const r=await fetchTO("https://photon.komoot.io/api/?q="+encodeURIComponent(q)+"&limit=1",7000);
+    if(r.ok){const d=await r.json();if(d&&d.features&&d.features.length){const f=d.features[0];return{lat:+f.geometry.coordinates[1],lon:+f.geometry.coordinates[0],nom:f.properties.name||ciu};}}
+  }catch(e){}
+  try{
+    setSt("1/2 Localizando "+ciu+" (Open-Meteo)...");
+    const r=await fetchTO("https://geocoding-api.open-meteo.com/v1/search?name="+encodeURIComponent(ciu.split(",")[0])+"&count=3&language=es",7000);
+    if(r.ok){const d=await r.json();if(d&&d.results&&d.results.length){const m=es?(d.results.find(x=>x.country_code==="ES")||d.results[0]):d.results[0];return{lat:+m.latitude,lon:+m.longitude,nom:m.name};}}
+  }catch(e){}
+  throw new Error("No se encontró la ciudad "+ciu);
+}
+
+function buildQuery(term, rad, lat, lon){
+  const p=`(around:${rad},${lat},${lon})`;
+  const low=term.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
+  if(!low||low==="todo"||low==="todos"){
+    return `[out:json][timeout:12];(nw["shop"]["name"]${p};nw["amenity"~"restaurant|cafe|bar|dentist|clinic|veterinary|pharmacy"]["name"]${p};nw["office"]["name"]${p};nw["craft"]["name"]${p};);out center 100;`;
+  }
+  const rules=[
+    [["barber","peluquer","corte"],`nw["shop"~"hairdresser|barber"]${p};`],
+    [["tatu","tattoo","pierc"],`nw["shop"="tattoo"]${p};nw["amenity"="tattoo"]${p};`],
+    [["dent","odont","ortodon"],`nw["amenity"="dentist"]${p};nw["healthcare"="dentist"]${p};`],
+    [["estet","bellez","una","manic","masaj","spa","depil"],`nw["shop"~"beauty|cosmetics|massage"]${p};nw["leisure"="spa"]${p};`],
+    [["gimn","fit","yoga","pilates"],`nw["leisure"~"fitness_centre|sports_centre"]${p};`],
+    [["restaur","bar","cafet","pizz","hamburg","comida"],`nw["amenity"~"restaurant|cafe|bar|fast_food"]${p};`],
+    [["taller","mecan","coche","auto","moto"],`nw["shop"~"car_repair|tyres|car|motorcycle_repair"]${p};`],
+    [["inmob","piso","casa"],`nw["office"="estate_agent"]${p};`],
+    [["veterin","mascot","perro"],`nw["amenity"="veterinary"]${p};nw["shop"="pet"]${p};`],
+    [["fisio","podol","psicolog","medic","clinic"],`nw["healthcare"]${p};nw["amenity"~"clinic|doctors"]${p};`],
+    [["abogad","gestor","asesor","notari","contab"],`nw["office"~"lawyer|accountant|tax_advisor|notary|company"]${p};`],
+    [["fontan","electri","reform","carpint","pintor","cerraj"],`nw["craft"]${p};`],
+    [["optic"],`nw["shop"="optician"]${p};`],
+    [["farmac"],`nw["amenity"="pharmacy"]${p};`],
+    [["panad","pastel","horno"],`nw["shop"~"bakery|pastry"]${p};`],
+    [["flor"],`nw["shop"="florist"]${p};`],
+    [["academ","autoesc","idiom"],`nw["amenity"~"school|language_school|driving_school"]${p};`],
+    [["hotel","hostal"],`nw["tourism"~"hotel|hostel|guest_house"]${p};`],
+    [["ropa","moda","zapat"],`nw["shop"~"clothes|shoes|boutique"]${p};`],
+    [["ferret"],`nw["shop"~"hardware|doityourself"]${p};`]
+  ];
+  let b=[];
+  rules.forEach(r=>{if(r[0].some(k=>low.includes(k)))b.push(r[1]);});
+  const cl=term.replace(/[.*+?^${}()|[\]\\"]/g,"").trim();
+  if(cl.length>=2) b.push(`nw["name"~"${cl}",i]${p};`);
+  return `[out:json][timeout:12];(${b.join("")});out center 100;`;
+}
+
+async function overpassGET(q, zona){
+  const eps=[
+    ["Overpass DE","https://overpass-api.de/api/interpreter"],
+    ["PrivateCoffee","https://overpass.private.coffee/api/interpreter"],
+    ["Overpass Z","https://z.overpass-api.de/api/interpreter"]
+  ];
+  for(let i=0;i<eps.length;i++){
+    try{
+      setSt(`2/2 ${zona} · Consultando ${eps[i][0]} (${i+1}/${eps.length})...`);
+      const r=await fetchTO(eps[i][1]+"?data="+encodeURIComponent(q),11000);
+      if(r.ok){const j=await r.json();if(j&&Array.isArray(j.elements))return j.elements;}
+    }catch(e){}
+  }
+  return null;
+}
+
+async function respaldoPOI(term, ciu, rad, lat, lon){
+  const dLat=(+rad/1000)/111.32, dLon=(+rad/1000)/(111.32*Math.cos(lat*Math.PI/180));
+  const minLat=(lat-dLat).toFixed(5), maxLat=(lat+dLat).toFixed(5), minLon=(lon-dLon).toFixed(5), maxLon=(lon+dLon).toFixed(5);
+  const q=term||"tienda", out=[];
+  try{
+    setSt("2/2 Probando respaldo Photon POI...");
+    const r=await fetchTO(`https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&bbox=${minLon},${minLat},${maxLon},${maxLat}&limit=40`,8000);
+    if(r.ok){
+      const d=await r.json();
+      (d.features||[]).forEach((f,i)=>{
+        const p=f.properties||{}; if(!p.name)return;
+        out.push({id:`ph_${p.osm_id||i}`,n:p.name,cat:p.osm_value||q,c:p.city||p.town||ciu,dir:[p.street,p.housenumber].filter(Boolean).join(" ")||"Ver en mapa",tel:"",web:"",ig:"",h:""});
+      });
+    }
+  }catch(e){}
+  if(!out.length){
+    try{
+      setSt("2/2 Probando respaldo Nominatim POI...");
+      const r=await fetchTO(`https://nominatim.openstreetmap.org/search?format=jsonv2&extratags=1&addressdetails=1&layer=poi&limit=40&viewbox=${minLon},${maxLat},${maxLon},${minLat}&bounded=1&q=${encodeURIComponent(q)}`,8000);
+      if(r.ok){
+        const d=await r.json();
+        d.forEach((x,i)=>{
+          const ex=x.extratags||{}, ad=x.address||{}, nm=x.name||(x.display_name||"").split(",")[0];
+          if(!nm)return;
+          out.push({id:`nom_${x.osm_id||i}`,n:nm,cat:x.type||q,c:ad.city||ad.town||ad.village||ciu,dir:[ad.road,ad.house_number].filter(Boolean).join(" ")||"Ver en mapa",tel:ex.phone||ex["contact:phone"]||"",web:ex.website||ex["contact:website"]||"",ig:ex["contact:instagram"]||"",h:ex.opening_hours||""});
+        });
+      }
+    }catch(e){}
+  }
+  return out;
+}
+
+async function buscarReales(){
+  const term=document.getElementById("inpNeg").value.trim();
+  const ciu=document.getElementById("inpCiu").value.trim();
+  const rad=document.getElementById("selRad").value;
+  const es=document.getElementById("cEs").checked;
+  const btn=document.getElementById("btnB");
+  if(!ciu){alert("Escribe una ciudad o pueblo.");return;}
+  btn.disabled=true; btn.textContent="⏳ Buscando...";
+  try{
+    const g=await localizar(ciu,es);
+    const els=await overpassGET(buildQuery(term,rad,g.lat,g.lon),g.nom);
+    const seen=new Set(), list=[];
+    if(els&&els.length){
+      els.forEach(el=>{
+        const t=el.tags||{}, nm=(t.name||"").trim();
+        if(!nm||seen.has(nm.toLowerCase()))return;
+        seen.add(nm.toLowerCase());
+        const tel=t.phone||t["contact:phone"]||t["contact:mobile"]||t.mobile||"";
+        const web=t.website||t["contact:website"]||t.url||"";
+        const ig=t["contact:instagram"]||t.instagram||"";
+        const dir=[t["addr:street"],t["addr:housenumber"]].filter(Boolean).join(" ")||"Ver en mapa";
+        const loc=t["addr:city"]||t["addr:town"]||t["addr:village"]||ciu;
+        const cat=t.shop||t.amenity||t.office||t.craft||t.healthcare||t.leisure||term||"negocio";
+        let sc=65+(tel?15:0)+(!web?12:0)+(!ig?5:0)+(dir!=="Ver en mapa"?3:0);
+        list.push({osmId:`${el.type}_${el.id}`,n:nm,t:term||cat,cat,c:loc,dir,tel,web,ig,h:t.opening_hours||"",score:Math.min(99,sc)});
+      });
+    } else {
+      const bak=await respaldoPOI(term,ciu,rad,g.lat,g.lon);
+      bak.forEach(x=>{
+        if(seen.has(x.n.toLowerCase()))return;
+        seen.add(x.n.toLowerCase());
+        list.push({osmId:x.id,n:x.n,t:term||x.cat,cat:x.cat,c:x.c,dir:x.dir,tel:x.tel,web:x.web,ig:x.ig,h:x.h,score:65+(x.tel?15:0)+(!x.web?12:0)});
+      });
+    }
+    list.sort((a,b)=>b.score-a.score);
+    res=list;
+    setSt(`✅ Encontrados ${list.length} negocios reales en ${ciu}.`);
+    renderRes();
+  }catch(e){setSt("❌ "+e.message,true);}
+  finally{btn.disabled=false;btn.textContent="📡 Buscar negocios reales";}
+}
+
+function linkDemo(b){
+  const base=new URL("./",window.location.href).href;
+  const l=(b.t||"").toLowerCase();
+  let k="otro";
+  if(l.includes("barber")||l.includes("peluqu"))k="barberia";
+  else if(l.includes("tatu")||l.includes("tattoo"))k="tatuaje";
+  else if(l.includes("dent"))k="dental";
+  else if(l.includes("estet")||l.includes("beauty"))k="estetica";
+  else if(l.includes("gimn")||l.includes("fit"))k="gimnasio";
+  else if(l.includes("restaur")||l.includes("cafe")||l.includes("bar"))k="restaurante";
+  else if(l.includes("taller")||l.includes("car_repair"))k="taller";
+  return base+"?demo="+encodeDemo({n:b.n,t:b.t,c:b.c,s:"",k});
+}
+
+function cardHTML(b,isC){
+  const tl=(b.tel||"").replace(/\D/g,""), dm=linkDemo(b), id=esc(b.osmId);
+  const gm="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(b.n+" "+b.c);
+  const wa=tl?"https://wa.me/"+(tl.startsWith("34")?tl:"34"+tl)+"?text="+encodeURIComponent("Hola "+b.n+", os he montado una demo gratis de Socio IA TSI: "+dm):"";
+  return `<div class="lead">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:6px">
+      <div><b>${esc(b.n)}</b> · <span class="small">${esc(b.dir)}, ${esc(b.c)}</span><br>
+        <span class="tag">${esc(b.cat||b.t)}</span>
+        <span class="tag">Oportunidad ${b.score}/100</span>
+        ${b.tel?`<span class="tag tag-ok">📞 ${esc(b.tel)}</span>`:`<span class="tag tag-warn">Sin tel en OSM</span>`}
+        ${b.web?`<span class="tag">🌐 Tiene web</span>`:`<span class="tag tag-ok">Sin web</span>`}
+      </div>
+      ${isC?`<select onchange="chgEst('${id}',this.value)" style="width:auto;margin:0;padding:5px">${["Por contactar","Ya contactado","Demo enviada","Ya es cliente","Descartado"].map(e=>`<option ${b.estado===e?'selected':''}>${e}</option>`).join("")}</select>`
+      :`<button class="btn-sm" onclick="addCRM('${id}')">💾 Guardar</button>`}
+    </div>
+    <div style="margin-top:8px">
+      <button onclick="verOut('${id}','msg')">💬 Mensaje</button>
+      <button onclick="verOut('${id}','gui')">📞 Guion</button>
+      <button onclick="verOut('${id}','dem')">🔗 Demo</button>
+      <button class="btn-dark" onclick="copOut('${id}')">📋 Copiar</button>
+      ${wa?`<a class="btn btn-green" target="_blank" href="${wa}">📲 WhatsApp</a>`:""}
+      <a class="btn btn-blue" target="_blank" href="${gm}">🔎 Google Maps</a>
+      ${b.web?`<a class="btn btn-dark" target="_blank" href="${esc(b.web.startsWith('http')?b.web:'https://'+b.web)}">🌐 Web</a>`:""}
+      ${isC?`<button class="btn-dark" onclick="delCRM('${id}')">🗑️</button>`:""}
+    </div>
+    <div id="o_${id}" class="outbox"></div>
+  </div>`;
+}
+
+function renderRes(){
+  const st=document.getElementById("cTel").checked, sw=document.getElementById("cWeb").checked, oc=document.getElementById("cCRM").checked;
+  const ids=new Set(crm.map(x=>x.osmId));
+  const f=res.filter(b=>(!st||b.tel)&&(!sw||!b.web)&&(!oc||!ids.has(b.osmId)));
+  const c=document.getElementById("resBox");
+  if(!res.length){c.innerHTML="";return;}
+  c.innerHTML=f.length?f.slice(0,60).map(b=>cardHTML(b,false)).join(""):`<div class="card"><p class="small">Sin resultados con estos filtros.</p></div>`;
+}
+function findB(id){return crm.find(x=>x.osmId===id)||res.find(x=>x.osmId===id);}
+function verOut(id,tp){
+  const b=findB(id);if(!b)return;
+  const dm=linkDemo(b), bx=document.getElementById("o_"+id);
+  bx.textContent=tp==="msg"?`Hola ${b.n}, soy de Tu Socio IA TSI. Os he preparado en ${b.c} una demo gratuita para responder clientes y agendar citas 24/7:\n${dm}`
+    :tp==="gui"?`GUION (${b.n}): "Hola, ¿hablo con el responsable de ${b.n}? Soy de Tu Socio IA TSI. Os he montado una demo con vuestro nombre para no perder clientes fuera de horario. ¿Te paso el enlace por WhatsApp?"`
+    :`Link Demo ${b.n}:\n${dm}`;
+  bx.style.display="block";
+}
+function copOut(id){const bx=document.getElementById("o_"+id);if(bx.style.display==="none")verOut(id,"msg");navigator.clipboard.writeText(bx.textContent);alert("Copiado.");}
+function addCRM(id){const b=res.find(x=>x.osmId===id);if(b&&!crm.some(x=>x.osmId===id)){crm.unshift({...b,estado:"Por contactar"});saveCRM();}renderRes();}
+function chgEst(id,v){const b=crm.find(x=>x.osmId===id);if(b){b.estado=v;saveCRM();}}
+function delCRM(id){crm=crm.filter(x=>x.osmId!==id);saveCRM();renderCRM();}
+function guardarManual(){
+  const n=document.getElementById("mN").value.trim(), c=document.getElementById("mC").value.trim();
+  if(!n||!c){alert("Pon nombre y ciudad.");return;}
+  const t=document.getElementById("mT").value.trim()||"negocio";
+  crm.unshift({osmId:"man_"+Date.now(),n,t,cat:t,c,dir:document.getElementById("mDir").value.trim()||"Manual",tel:document.getElementById("mTel").value.trim(),web:document.getElementById("mWeb").value.trim(),ig:"",h:"",score:90,estado:"Por contactar"});
+  saveCRM();
+  ["mN","mT","mC","mTel","mDir","mWeb"].forEach(i=>document.getElementById(i).value="");
+  verTab("g");
+}
+function renderCRM(){
+  const ft=document.getElementById("fTxt").value.toLowerCase().trim(), fe=document.getElementById("fEst").value;
+  const f=crm.filter(b=>(!ft||b.n.toLowerCase().includes(ft)||b.c.toLowerCase().includes(ft))&&(fe==="todos"||b.estado===fe));
+  document.getElementById("gBox").innerHTML=f.length?f.map(b=>cardHTML(b,true)).join(""):`<div class="card"><p class="small">CRM vacío con este filtro.</p></div>`;
+}
+["inpNeg","inpCiu"].forEach(i=>document.getElementById(i).addEventListener("keydown",e=>{if(e.key==="Enter")buscarReales();}));
+["cTel","cWeb","cCRM"].forEach(i=>document.getElementById(i).addEventListener("change",renderRes));
+saveCRM();
+</script>
+</body>
+</html>
